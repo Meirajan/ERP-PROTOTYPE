@@ -65,7 +65,10 @@ button, input, select, textarea {
 
 button {
     cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
 }
+button:disabled { cursor: wait; opacity: .7; }
+button:active, .btn:active { transform: translateY(1px); }
 
 button:focus-visible, input:focus-visible, select:focus-visible {
     outline: 2px solid var(--primary);
@@ -1224,7 +1227,9 @@ img, svg, canvas, video { max-width: 100%; }
 .content > *, .page > *, .grid-two > *, .grid-three > *, .module-grid > * { min-width: 0; }
 .table-wrap, .table-container, .data-table-wrap { max-width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; }
 table { width: 100%; }
-button, .btn, .icon-button, .logout-btn, .nav button { touch-action: manipulation; }
+button, .btn, .icon-button, .logout-btn, .nav button { touch-action: manipulation; -webkit-user-select: none; user-select: none; }
+.nav button { min-width: 0; }
+.top-actions button, .actions button, .button-row button, .form-actions button { max-width: 100%; }
 .btn, button { min-height: 38px; }
 input, select, textarea { max-width: 100%; min-width: 0; }
 .search input { width: 100%; }
@@ -1381,50 +1386,53 @@ input, select, textarea { max-width: 100%; min-width: 0; }
     <div class="nav-title">Workspace</div>
 
     <nav class="nav" id="mainNav">
-        <button class="active" data-page="dashboard" data-role="all">
+        <button type="button" class="active" data-page="dashboard" data-role="all">
             <span class="nav-icon">⌂</span> Dashboard
         </button>
-        <button data-page="production" data-role="admin,production">
+        <button type="button" data-page="production" data-role="admin,production">
             <span class="nav-icon">⚙</span> Production
         </button>
-        <button data-page="inventory" data-role="admin,production,inventory">
+        <button type="button" data-page="inventory" data-role="admin,production,inventory">
             <span class="nav-icon">▣</span> Inventory
         </button>
-        <button data-page="procurement" data-role="admin,inventory">
+        <button type="button" data-page="procurement" data-role="admin,inventory">
             <span class="nav-icon">⇄</span> Procurement
         </button>
-        <button data-page="orders" data-role="admin,sales">
+        <button type="button" data-page="orders" data-role="admin,sales">
             <span class="nav-icon">▤</span> Sales Orders
         </button>
-        <button data-page="quality" data-role="admin,production">
+        <button type="button" data-page="quality" data-role="admin,production">
             <span class="nav-icon">✓</span> Quality Control
         </button>
-        <button data-page="finance" data-role="admin,sales">
+        <button type="button" data-page="finance" data-role="admin,sales">
             <span class="nav-icon">₹</span> Finance
         </button>
-        <button data-page="workforce" data-role="admin,hr">
+        <button type="button" data-page="workforce" data-role="admin,hr">
             <span class="nav-icon">♙</span> Workforce
         </button>
-        <button data-page="reports" data-role="all">
+        <button type="button" data-page="reports" data-role="all">
             <span class="nav-icon">▥</span> Reports
         </button>
-        <button data-page="settings" data-role="admin">
+        <button type="button" data-page="settings" data-role="admin">
             <span class="nav-icon">⚙</span> Settings
         </button>
     </nav>
 
-
         <div class="nav-title">Management & Planning</div>
-        <button data-page="pricing" data-role="admin,sales"><span class="nav-icon">₹</span> Product Cost & Pricing</button>
-        <button data-page="tasks" data-role="admin,production,hr"><span class="nav-icon">☷</span> Task Assignments & Team Work</button>
-        <button data-page="machines" data-role="admin,production"><span class="nav-icon">▦</span> Machine Performance</button>
-        <button data-page="bom" data-role="admin,production,inventory"><span class="nav-icon">☷</span> Parts List & BOM Builder</button>
-        <button data-page="crm" data-role="admin,sales"><span class="nav-icon">◎</span> Customer Orders & CRM</button>
+        <nav class="nav" id="managementNav">
+        <button type="button" data-page="pricing" data-role="admin,sales"><span class="nav-icon">₹</span> Product Cost & Pricing</button>
+        <button type="button" data-page="tasks" data-role="admin,production,hr"><span class="nav-icon">☷</span> Task Assignments & Team Work</button>
+        <button type="button" data-page="machines" data-role="admin,production"><span class="nav-icon">▦</span> Machine Performance</button>
+        <button type="button" data-page="bom" data-role="admin,production,inventory"><span class="nav-icon">☷</span> Parts List & BOM Builder</button>
+        <button type="button" data-page="crm" data-role="admin,sales"><span class="nav-icon">◎</span> Customer Orders & CRM</button>
+        </nav>
         <div class="nav-title">People & Factory Operations</div>
-        <button data-page="employees" data-role="admin,hr"><span class="nav-icon">♙</span> Employee Directory</button>
-        <button data-page="payroll" data-role="admin,hr"><span class="nav-icon">₹</span> Staff Payroll & Attendance</button>
-        <button data-page="maintenance" data-role="admin,production"><span class="nav-icon">⚒</span> Maintenance & Downtime</button>
-        <button data-page="shipping" data-role="admin,sales,inventory"><span class="nav-icon">⇢</span> Dispatch & Serial Registry</button>
+        <nav class="nav" id="peopleNav">
+        <button type="button" data-page="employees" data-role="admin,hr"><span class="nav-icon">♙</span> Employee Directory</button>
+        <button type="button" data-page="payroll" data-role="admin,hr"><span class="nav-icon">₹</span> Staff Payroll & Attendance</button>
+        <button type="button" data-page="maintenance" data-role="admin,production"><span class="nav-icon">⚒</span> Maintenance & Downtime</button>
+        <button type="button" data-page="shipping" data-role="admin,sales,inventory"><span class="nav-icon">⇢</span> Dispatch & Serial Registry</button>
+        </nav>
 
     <div class="sidebar-footer">
         <div class="sidebar-status">
@@ -1450,8 +1458,8 @@ input, select, textarea { max-width: 100%; min-width: 0; }
     </div>
 
     <div class="top-actions">
-        <button class="icon-button" id="themeButton" title="Toggle Theme">☼</button>
-        <button class="icon-button" id="notificationButton">
+        <button type="button" class="icon-button" id="themeButton" title="Toggle Theme">☼</button>
+        <button type="button" class="icon-button" id="notificationButton">
             ♢
             <span class="notification-count" id="notificationCount">3</span>
         </button>
@@ -1703,15 +1711,15 @@ input, select, textarea { max-width: 100%; min-width: 0; }
     <div class="grid-three">
         <div class="card card-body">
             <h3>Production Summary</h3>
-            <button class="btn btn-primary" style="margin-top:12px">Generate Report</button>
+            <button type="button" class="btn btn-primary" style="margin-top:12px" onclick="generateReport(this)">Generate Report</button>
         </div>
         <div class="card card-body">
             <h3>Inventory Valuation</h3>
-            <button class="btn btn-primary" style="margin-top:12px">Generate Report</button>
+            <button type="button" class="btn btn-primary" style="margin-top:12px" onclick="generateReport(this)">Generate Report</button>
         </div>
         <div class="card card-body">
             <h3>Quality Audit Log</h3>
-            <button class="btn btn-primary" style="margin-top:12px">Generate Report</button>
+            <button type="button" class="btn btn-primary" style="margin-top:12px" onclick="generateReport(this)">Generate Report</button>
         </div>
     </div>
 </div>
@@ -1724,7 +1732,7 @@ input, select, textarea { max-width: 100%; min-width: 0; }
     <div class="card card-body">
         <h3>ERP Configuration</h3>
         <p style="color:var(--muted); margin-bottom:16px">Manage system preferences and role permissions.</p>
-        <button class="btn btn-primary">Save Settings</button>
+        <button type="button" class="btn btn-primary" onclick="saveSettings()">Save Settings</button>
     </div>
 </div>
 
@@ -1886,7 +1894,7 @@ function logout() {
 }
 
 function filterNavByRole() {
-    const buttons = document.querySelectorAll('#mainNav button');
+    const buttons = document.querySelectorAll('#sidebar button[data-page]');
     buttons.forEach(btn => {
         const allowedRoles = btn.dataset.role.split(',');
         if (btn.dataset.role === 'all' || allowedRoles.includes(currentUser.role) || currentUser.role === 'admin') {
@@ -1910,7 +1918,7 @@ function showPage(pageId) {
     const activePage = document.getElementById(pageId);
     if (activePage) activePage.classList.add('active');
 
-    const activeNav = document.querySelector(`.nav button[data-page="${pageId}"]`);
+    const activeNav = document.querySelector(`#sidebar button[data-page="${pageId}"]`);
     if (activeNav) activeNav.classList.add('active');
 
     if (pageId === 'dashboard') {
@@ -1920,12 +1928,13 @@ function showPage(pageId) {
 }
 
 document.addEventListener('click', (e) => {
+    if (e.target.classList?.contains('modal-background') && e.target.classList.contains('show')) { closeModal(e.target); return; }
     const btn = e.target.closest('button');
     if (!btn) return;
 
     if (btn.dataset.page) showPage(btn.dataset.page);
     if (btn.dataset.pageJump) showPage(btn.dataset.pageJump);
-    if (btn.dataset.page || btn.dataset.pageJump) { document.getElementById('sidebar')?.classList.remove('open'); document.getElementById('overlay')?.classList.remove('show'); }
+    if (btn.dataset.page || btn.dataset.pageJump) { closeMobileMenu(); }
     if (btn.dataset.modal) openModal(btn.dataset.modal);
     if (btn.hasAttribute('data-close')) closeModal(btn.closest('.modal-background'));
 });
@@ -2032,18 +2041,43 @@ document.getElementById('themeButton').addEventListener('click', () => {
     document.getElementById('themeButton').textContent = isDark ? '☼' : '☾';
 });
 
-// Mobile Sidebar Menu
-document.getElementById('menuButton').addEventListener('click', () => {
-    document.getElementById('sidebar').classList.add('open');
-    document.getElementById('overlay').classList.add('show');
-    document.getElementById('menuButton').setAttribute('aria-expanded', 'true');
+// Mobile Sidebar Menu — supports open, close, overlay tap, navigation and Escape.
+function closeMobileMenu() {
+    document.getElementById('sidebar')?.classList.remove('open');
+    document.getElementById('overlay')?.classList.remove('show');
+    document.getElementById('menuButton')?.setAttribute('aria-expanded', 'false');
+}
+document.getElementById('menuButton')?.addEventListener('click', () => {
+    const sidebar = document.getElementById('sidebar');
+    const isOpen = sidebar.classList.contains('open');
+    if (isOpen) { closeMobileMenu(); return; }
+    sidebar.classList.add('open');
+    document.getElementById('overlay')?.classList.add('show');
+    document.getElementById('menuButton')?.setAttribute('aria-expanded', 'true');
+});
+document.getElementById('overlay')?.addEventListener('click', closeMobileMenu);
+document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') {
+        closeMobileMenu();
+        document.querySelectorAll('.modal-background.show').forEach(closeModal);
+    }
 });
 
-document.getElementById('overlay').addEventListener('click', () => {
-    document.getElementById('sidebar').classList.remove('open');
-    document.getElementById('overlay').classList.remove('show');
-    document.getElementById('menuButton').setAttribute('aria-expanded', 'false');
-});
+// Make demo actions provide clear feedback rather than appearing unresponsive.
+function generateReport(button) {
+    const reportName = button?.closest('.card, .card-body')?.querySelector('h3')?.textContent?.trim() || 'ERP report';
+    const oldText = button.textContent;
+    button.disabled = true;
+    button.textContent = 'Preparing…';
+    window.setTimeout(() => {
+        button.disabled = false;
+        button.textContent = oldText;
+        toast('Report generated', `${reportName} is ready in this demo prototype.`);
+    }, 450);
+}
+function saveSettings() {
+    toast('Settings saved', 'Your demo configuration has been applied for this session.');
+}
 
 // Form Submissions
 document.querySelectorAll('form').forEach(form => {
