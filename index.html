@@ -1311,6 +1311,19 @@ input, select, textarea { max-width: 100%; min-width: 0; }
   *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
 }
 
+
+/* Global interaction reliability and accessible focus states */
+button, [role="button"], a, input, select, textarea { -webkit-tap-highlight-color: transparent; }
+button:not(:disabled) { cursor: pointer; }
+button:disabled { cursor: not-allowed; opacity: .58; }
+button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible { outline: 3px solid rgba(37,99,235,.38); outline-offset: 2px; }
+.modal-background { z-index: 1000; }
+.modal-background.show { pointer-events: auto; }
+.modal { max-height: min(90vh, 760px); overflow-y: auto; overscroll-behavior: contain; }
+.toast-container { z-index: 2000; pointer-events: none; }
+.toast { pointer-events: auto; }
+@media (max-width: 600px) { .form-actions { display: flex; flex-wrap: wrap; gap: 8px; } .form-actions button { flex: 1 1 120px; } .page-title > button { max-width: 100%; } }
+
 </style>
 </head>
 
@@ -1762,7 +1775,7 @@ input, select, textarea { max-width: 100%; min-width: 0; }
     <div class="modal">
         <div class="modal-header">
             <h3>Create Production Order</h3>
-            <button class="close" data-close>×</button>
+            <button type="button" class="close" data-close aria-label="Close dialog">×</button>
         </div>
         <form class="form" id="productionForm">
             <div class="form-grid">
@@ -1792,7 +1805,7 @@ input, select, textarea { max-width: 100%; min-width: 0; }
     <div class="modal">
         <div class="modal-header">
             <h3>Add Inventory</h3>
-            <button class="close" data-close>×</button>
+            <button type="button" class="close" data-close aria-label="Close dialog">×</button>
         </div>
         <form class="form" id="inventoryForm">
             <div class="field">
@@ -1811,7 +1824,7 @@ input, select, textarea { max-width: 100%; min-width: 0; }
     <div class="modal">
         <div class="modal-header">
             <h3>Create Purchase Order</h3>
-            <button class="close" data-close>×</button>
+            <button type="button" class="close" data-close aria-label="Close dialog">×</button>
         </div>
         <form class="form" id="purchaseForm">
             <div class="field">
@@ -1928,13 +1941,13 @@ function showPage(pageId) {
 }
 
 document.addEventListener('click', (e) => {
-    if (e.target.classList?.contains('modal-background') && e.target.classList.contains('show')) { closeModal(e.target); return; }
-    const btn = e.target.closest('button');
-    if (!btn) return;
+    const target = e.target;
+    if (target instanceof Element && target.classList.contains('modal-background') && target.classList.contains('show')) { closeModal(target); return; }
+    const btn = target instanceof Element ? target.closest('button') : null;
+    if (!btn || btn.disabled) return;
 
-    if (btn.dataset.page) showPage(btn.dataset.page);
-    if (btn.dataset.pageJump) showPage(btn.dataset.pageJump);
-    if (btn.dataset.page || btn.dataset.pageJump) { closeMobileMenu(); }
+    if (btn.dataset.page) { showPage(btn.dataset.page); closeMobileMenu(); }
+    if (btn.dataset.pageJump) { showPage(btn.dataset.pageJump); closeMobileMenu(); }
     if (btn.dataset.modal) openModal(btn.dataset.modal);
     if (btn.hasAttribute('data-close')) closeModal(btn.closest('.modal-background'));
 });
@@ -2026,19 +2039,20 @@ function closeModal(modal) {
 
 function toast(title, msg) {
     const container = document.getElementById("toastContainer");
-    const el = document.createElement("div");
-    el.className = "toast";
-    el.innerHTML = `<div><strong>${title}</strong><p>${msg}</p></div>`;
-    container.appendChild(el);
-    setTimeout(() => el.remove(), 3000);
+    if (!container) { console.info(`${title}: ${msg}`); return; }
+    const el = document.createElement("div"); el.className = "toast";
+    const strong = document.createElement('strong'); strong.textContent = title;
+    const p = document.createElement('p'); p.textContent = msg;
+    const inner = document.createElement('div'); inner.append(strong, p); el.appendChild(inner); container.appendChild(el);
+    window.setTimeout(() => el.remove(), 3500);
 }
 
 // Theme Toggle
-document.getElementById('themeButton').addEventListener('click', () => {
+document.getElementById('themeButton')?.addEventListener('click', () => {
     const isDark = document.body.dataset.theme === 'dark';
     document.body.dataset.theme = isDark ? 'light' : 'dark';
-    localStorage.setItem('vivobook-erp-theme', document.body.dataset.theme);
-    document.getElementById('themeButton').textContent = isDark ? '☼' : '☾';
+    try { localStorage.setItem('vivobook-erp-theme', document.body.dataset.theme); } catch (err) {}
+    const button = document.getElementById('themeButton'); if (button) { button.textContent = isDark ? '☼' : '☾'; button.setAttribute('aria-label', isDark ? 'Switch to dark theme' : 'Switch to light theme'); }
 });
 
 // Mobile Sidebar Menu — supports open, close, overlay tap, navigation and Escape.
@@ -2065,27 +2079,52 @@ document.addEventListener('keydown', (event) => {
 
 // Make demo actions provide clear feedback rather than appearing unresponsive.
 function generateReport(button) {
-    const reportName = button?.closest('.card, .card-body')?.querySelector('h3')?.textContent?.trim() || 'ERP report';
-    const oldText = button.textContent;
-    button.disabled = true;
-    button.textContent = 'Preparing…';
-    window.setTimeout(() => {
-        button.disabled = false;
-        button.textContent = oldText;
-        toast('Report generated', `${reportName} is ready in this demo prototype.`);
-    }, 450);
+    const card = button?.closest('.card, .card-body');
+    const reportName = card?.querySelector('h3')?.textContent?.trim() || 'ERP report';
+    const table = card?.querySelector('table') || document.querySelector('.page.active table');
+    const rows = table ? [...table.querySelectorAll('tr')].map(row => [...row.querySelectorAll('th,td')].map(cell => '"' + cell.innerText.trim().replace(/"/g,'""') + '"').join(',')) : [['Report', reportName], ['Generated At', new Date().toLocaleString()]].map(row => row.join(','));
+    const blob = new Blob([rows.join('\r\n')], {type:'text/csv;charset=utf-8;'});
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement('a'); link.href = url; link.download = reportName.toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'') + '.csv';
+    document.body.appendChild(link); link.click(); link.remove(); URL.revokeObjectURL(url);
+    toast('Report downloaded', `${reportName} was exported as a CSV file.`);
 }
 function saveSettings() {
-    toast('Settings saved', 'Your demo configuration has been applied for this session.');
+    const settings = {};
+    document.querySelectorAll('#settings input, #settings select, #settings textarea').forEach((el, i) => { settings[el.id || el.name || `setting${i+1}`] = el.type === 'checkbox' ? el.checked : el.value; });
+    try { localStorage.setItem('vivobook-erp-settings', JSON.stringify(settings)); } catch (err) { /* storage may be unavailable in private browsing */ }
+    toast('Settings saved', 'Your settings have been saved in this browser where storage is available.');
 }
 
-// Form Submissions
+// Form submissions: each modal now performs a visible demo action.
 document.querySelectorAll('form').forEach(form => {
     if (form.id === 'loginForm') return;
     form.addEventListener('submit', (e) => {
         e.preventDefault();
+        const values = [...form.querySelectorAll('input, select, textarea')].map(el => el.value.trim());
+        if (form.id === 'productionForm') {
+            const model = form.querySelector('select')?.value || 'Vivobook model';
+            const qty = Math.max(1, Number(form.querySelector('input[type="number"]')?.value) || 1);
+            productionOrders.unshift({id:`VB-${new Date().getFullYear()}-${String(Date.now()).slice(-4)}`, model, qty, line:'Line D', stage:'Queued', progress:0, status:'Queued'});
+            renderOrders();
+            toast('Production order created', `${qty} unit(s) of ${model} added to the production queue.`);
+        } else if (form.id === 'inventoryForm') {
+            const name = form.querySelector('input')?.value.trim();
+            if (!name) { form.querySelector('input')?.focus(); toast('Component required','Enter a component name before saving stock.'); return; }
+            inventory.unshift({name, category:'New component', stock:0, unit:'pcs', warehouse:'WH-01', reorder:10});
+            renderInventory();
+            toast('Inventory saved', `${name} was added with an initial stock of 0 pcs.`);
+        } else if (form.id === 'purchaseForm') {
+            const supplier = form.querySelector('input')?.value.trim();
+            if (!supplier) { form.querySelector('input')?.focus(); toast('Supplier required','Enter a supplier name before submitting the purchase order.'); return; }
+            purchaseOrders.unshift({po:`PO-${String(Date.now()).slice(-5)}`, supplier, item:'New component order', qty:1, due:'Pending', value:'Pending', status:'Draft'});
+            renderPurchases();
+            toast('Purchase order created', `A draft purchase order for ${supplier} was added.`);
+        } else {
+            toast('Saved', 'Your demo changes have been applied.');
+        }
+        form.reset();
         closeModal(form.closest('.modal-background'));
-        toast("Success", "Action executed successfully.");
     });
 });
 
@@ -2099,11 +2138,23 @@ function addLead(){const t=document.querySelector('#crmTable tbody');const r=t.i
 function addPayroll(){const t=document.querySelector('#payrollTable tbody');const r=t.insertRow();r.innerHTML=`<td>PAYR-${Date.now().toString().slice(-5)}</td><td>New payroll review</td><td>Factory</td><td>HR Admin</td><td>Awaiting review</td><td><span class="status status-warning">Pending Review</span></td><td><button class="btn btn-outline btn-small" onclick="toast('Payroll','Review recorded in demo.')">Review</button></td>`;document.getElementById('payrollCount').textContent=Number(document.getElementById('payrollCount').textContent)+1;toast('Payroll entry added','A demo payroll entry was created.');}
 function filterEmployees(){const q=(document.getElementById('employeeSearch').value||'').toLowerCase();const status=document.getElementById('employeeStatus').value;document.querySelectorAll('#employeeTable tbody tr').forEach(r=>{const text=r.innerText.toLowerCase();const okStatus=status==='all'||text.includes(status.toLowerCase());r.style.display=text.includes(q)&&okStatus?'':'none';});}
 const ml=document.getElementById('machineLines');if(ml){ml.innerHTML=[['Line 1 · Mainboard Assembly',7420,7600,99.4],['Line 2 · Display Fitting',7350,7600,98.8],['Line 3 · Camera & Sensor Calibration',7290,7600,98.2],['Line 4 · OS Loading & Signal Test',7210,7600,99.1],['Line 5 · Battery & Durability Test',7150,7600,97.9],['Line 6 · Packing & Serial Sticker',7080,7600,99.8]].map(x=>`<div class="progress-item"><div class="progress-meta"><span>${x[0]}</span><strong>${x[1].toLocaleString()} / ${x[2].toLocaleString()} · ${x[3]}% pass</strong></div><div class="progress-track"><div class="progress-bar" style="width:${x[1]/x[2]*100}%"></div></div></div>`).join('');}
-const searchBox=document.getElementById('globalSearch');if(searchBox){searchBox.addEventListener('keydown',e=>{if(e.key==='Enter'){const q=searchBox.value.trim().toLowerCase();const btn=[...document.querySelectorAll('#mainNav button[data-page]')].find(b=>b.innerText.toLowerCase().includes(q)||b.dataset.page.includes(q));if(btn){showPage(btn.dataset.page);toast('Module opened',btn.innerText.trim());}else toast('No module found','Try Production, BOM, Pricing, Employees or CRM.');}});}
+const searchBox=document.getElementById('globalSearch');if(searchBox){searchBox.addEventListener('keydown',e=>{if(e.key==='Enter'){const q=searchBox.value.trim().toLowerCase();const btn=[...document.querySelectorAll('#sidebar button[data-page]')].find(b=>b.innerText.toLowerCase().includes(q)||b.dataset.page.includes(q));if(btn){showPage(btn.dataset.page);toast('Module opened',btn.innerText.trim());}else toast('No module found','Try Production, BOM, Pricing, Employees or CRM.');}});}
 document.getElementById('notificationButton')?.addEventListener('click',()=>toast('Factory notifications','2 low-stock components · 1 machine service due · 3 approvals pending.'));
 
 // Restore theme preference (light by default)
-if(localStorage.getItem('vivobook-erp-theme')==='dark'){document.body.dataset.theme='dark';document.getElementById('themeButton').textContent='☾';}
+try { if(localStorage.getItem('vivobook-erp-theme')==='dark'){document.body.dataset.theme='dark';const tb=document.getElementById('themeButton');if(tb){tb.textContent='☾';tb.setAttribute('aria-label','Switch to light theme');}} } catch (err) {}
+
+// Feedback for remaining prototype-only action buttons that do not yet connect to a backend.
+document.addEventListener('click', (event) => {
+    const btn = event.target instanceof Element ? event.target.closest('button') : null;
+    if (!btn || btn.disabled || btn.type === 'submit' || btn.dataset.page || btn.dataset.pageJump || btn.dataset.modal || btn.hasAttribute('data-close')) return;
+    if (btn.id === 'menuButton' || btn.id === 'themeButton' || btn.id === 'notificationButton') return;
+    if (btn.hasAttribute('onclick')) return;
+    if (btn.closest('#loginForm')) return;
+    const label = btn.innerText.trim() || btn.getAttribute('aria-label') || 'Action';
+    toast(label, 'This demo control was clicked. Live data updates require backend integration.');
+});
+
 // Initialize
 renderOrders();
 renderInventory();
