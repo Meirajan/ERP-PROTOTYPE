@@ -1215,6 +1215,97 @@ footer {
     .overlay.show { display: block; }
     .grid-two, .grid-three, .module-grid { grid-template-columns: 1fr; }
 }
+
+
+/* ================= RESPONSIVE DEVICE POLISH ================= */
+img, svg, canvas, video { max-width: 100%; }
+.content { width: 100%; min-width: 0; padding: clamp(12px, 2.2vw, 28px); }
+.page, .panel, .card, .section-card, .table-wrap, .chart-card { min-width: 0; }
+.content > *, .page > *, .grid-two > *, .grid-three > *, .module-grid > * { min-width: 0; }
+.table-wrap, .table-container, .data-table-wrap { max-width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+table { width: 100%; }
+button, .btn, .icon-button, .logout-btn, .nav button { touch-action: manipulation; }
+.btn, button { min-height: 38px; }
+input, select, textarea { max-width: 100%; min-width: 0; }
+.search input { width: 100%; }
+
+@media (max-width: 1100px) {
+  :root { --sidebar-width: 250px; }
+  .topbar { padding: 0 18px; gap: 12px; }
+  .content { padding: 18px; }
+  .grid-four, .stats-grid, .kpi-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .hero { gap: 18px; }
+}
+@media (max-width: 950px) {
+  .sidebar { width: min(290px, 86vw); max-width: 86vw; transform: translateX(-105%); box-shadow: none; }
+  .sidebar.open { transform: translateX(0); box-shadow: 18px 0 40px rgba(15,23,42,.16); }
+  .main { margin-left: 0; width: 100%; }
+  .topbar { height: auto; min-height: 64px; padding: 10px 14px; flex-wrap: wrap; }
+  .menu-button { display: grid; flex: 0 0 42px; width: 42px; height: 42px; }
+  .search { flex: 1 1 180px; max-width: none; }
+  .top-actions { margin-left: auto; gap: 8px; }
+  .user-info { display: none; }
+  .logout-btn { padding: 8px 10px; }
+  .overlay.show { display: block; }
+  .grid-two, .grid-three, .module-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .page-header, .section-header { flex-wrap: wrap; gap: 12px; }
+  .page-header .actions, .section-header .actions { display: flex; flex-wrap: wrap; }
+}
+@media (max-width: 640px) {
+  body { font-size: 14px; }
+  .content { padding: 12px; }
+  .topbar { gap: 8px; padding: 10px 12px; }
+  .search { order: 3; flex: 1 0 100%; max-width: none; }
+  .search input { min-height: 42px; }
+  .top-actions { flex: 1 1 auto; justify-content: flex-end; }
+  .icon-button { width: 40px; height: 40px; flex: 0 0 40px; }
+  .user { gap: 6px; }
+  .logout-btn { font-size: 12px; }
+  .grid-two, .grid-three, .grid-four, .stats-grid, .kpi-grid, .module-grid,
+  .dashboard-grid, .analytics-grid { grid-template-columns: minmax(0, 1fr) !important; }
+  .hero { padding: 20px 16px; grid-template-columns: minmax(0, 1fr); }
+  .hero h1 { font-size: clamp(24px, 7vw, 34px); line-height: 1.15; overflow-wrap: anywhere; }
+  h1 { font-size: clamp(22px, 6vw, 30px); }
+  h2 { font-size: clamp(19px, 5vw, 24px); }
+  h3 { font-size: 17px; }
+  .card, .panel, .section-card, .chart-card { padding: 14px; border-radius: 14px; }
+  .page-title-row, .page-header, .section-header { align-items: flex-start; }
+  .page-title-row > *, .page-header > *, .section-header > * { max-width: 100%; }
+  .actions, .button-row, .form-actions { flex-wrap: wrap; }
+  .actions .btn, .button-row .btn { flex: 1 1 auto; }
+  .btn { padding: 10px 13px; white-space: normal; }
+  .form-grid, .form-row { grid-template-columns: minmax(0, 1fr) !important; }
+  .field { min-width: 0; }
+  .form-control, input, select, textarea { font-size: 16px; } /* avoids mobile browser zoom */
+  .table-wrap table, .table-container table, .data-table-wrap table { min-width: 680px; }
+  table th, table td { padding: 10px 12px; white-space: nowrap; }
+  .notification-panel { top: 68px; right: 10px; left: 10px; width: auto; max-width: none; }
+  .toast-container { left: 12px; right: 12px; bottom: 12px; }
+  .toast { min-width: 0; width: 100%; }
+  .modal-background { padding: 10px; align-items: flex-end; }
+  .modal, .modal-card, .modal-content { width: 100%; max-width: 100%; max-height: 88dvh; overflow-y: auto; border-radius: 18px 18px 12px 12px; }
+  .login-screen { padding: 12px; align-items: center; overflow-y: auto; }
+  .login-card { border-radius: 18px; grid-template-columns: minmax(0, 1fr); max-height: calc(100dvh - 24px); overflow-y: auto; }
+  .login-form-container { padding: 22px 18px; }
+  .demo-roles-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+  .demo-role-btn { padding: 11px 8px; font-size: 12px; }
+  .login-banner { display: none; }
+  .sidebar-status { margin-top: 14px; }
+}
+@media (max-width: 380px) {
+  .content { padding: 9px; }
+  .topbar { padding: 8px; }
+  .menu-button { width: 38px; height: 38px; flex-basis: 38px; }
+  .top-actions { gap: 5px; }
+  .logout-btn { padding: 7px; }
+  .card, .panel, .section-card, .chart-card { padding: 11px; }
+  .demo-roles-grid { grid-template-columns: minmax(0, 1fr); }
+  .demo-role-btn[style*="grid-column"] { grid-column: auto !important; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+}
+
 </style>
 </head>
 
@@ -1351,7 +1442,7 @@ footer {
 <main class="main">
 
 <header class="topbar">
-    <button class="menu-button" id="menuButton">☰</button>
+    <button class="menu-button" id="menuButton" type="button" aria-label="Open navigation menu" aria-controls="sidebar" aria-expanded="false">☰</button>
 
     <div class="search">
         <span>⌕</span>
@@ -1834,6 +1925,7 @@ document.addEventListener('click', (e) => {
 
     if (btn.dataset.page) showPage(btn.dataset.page);
     if (btn.dataset.pageJump) showPage(btn.dataset.pageJump);
+    if (btn.dataset.page || btn.dataset.pageJump) { document.getElementById('sidebar')?.classList.remove('open'); document.getElementById('overlay')?.classList.remove('show'); }
     if (btn.dataset.modal) openModal(btn.dataset.modal);
     if (btn.hasAttribute('data-close')) closeModal(btn.closest('.modal-background'));
 });
@@ -1944,11 +2036,13 @@ document.getElementById('themeButton').addEventListener('click', () => {
 document.getElementById('menuButton').addEventListener('click', () => {
     document.getElementById('sidebar').classList.add('open');
     document.getElementById('overlay').classList.add('show');
+    document.getElementById('menuButton').setAttribute('aria-expanded', 'true');
 });
 
 document.getElementById('overlay').addEventListener('click', () => {
     document.getElementById('sidebar').classList.remove('open');
     document.getElementById('overlay').classList.remove('show');
+    document.getElementById('menuButton').setAttribute('aria-expanded', 'false');
 });
 
 // Form Submissions
