@@ -3,9 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#f8fafc">
+<meta name="theme-color" content="#0f172a">
 <meta name="description" content="ASUS Vivobook Manufacturing ERP System Prototype">
-<title>ASUS Vivobook Manufacturing ERP | Factory Operations Suite</title>
+<title>ASUS Vivobook Manufacturing ERP</title>
 
 <style>
 :root {
@@ -21,8 +21,8 @@
     --warning: #b45309;
     --danger: #dc2626;
     --info: #0284c7;
-    --sidebar: #0f172a;
-    --sidebar-text: #cbd5e1;
+    --sidebar: #ffffff;
+    --sidebar-text: #475569;
     --shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
     --radius: 16px;
     --sidebar-width: 270px;
@@ -77,7 +77,7 @@ button:focus-visible, input:focus-visible, select:focus-visible {
     position: fixed;
     inset: 0;
     z-index: 5000;
-    background: radial-gradient(circle at 80% 20%, #1e3a8a, #0f172a 70%);
+    background: radial-gradient(circle at 80% 20%, #dbeafe, #f8fafc 70%);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -210,9 +210,10 @@ button:focus-visible, input:focus-visible, select:focus-visible {
     bottom: 0;
     width: var(--sidebar-width);
     background: var(--sidebar);
-    color: #ffffff;
+    color: #0f172a;
+    border-right: 1px solid var(--border);
     z-index: 1000;
-    padding: 24px 18px;
+    padding: 18px 12px;
     overflow-y: auto;
     transition: 0.3s ease;
     display: flex;
@@ -224,7 +225,7 @@ button:focus-visible, input:focus-visible, select:focus-visible {
     align-items: center;
     gap: 12px;
     padding-bottom: 24px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid var(--border);
 }
 
 .brand-logo {
@@ -242,12 +243,12 @@ button:focus-visible, input:focus-visible, select:focus-visible {
 .brand strong {
     display: block;
     font-size: 16px;
-    color: #ffffff;
+    color: #0f172a;
 }
 
 .brand small {
     display: block;
-    color: #94a3b8;
+    color: #64748b;
     font-size: 11px;
 }
 
@@ -283,8 +284,8 @@ button:focus-visible, input:focus-visible, select:focus-visible {
 }
 
 .nav button:hover {
-    background: rgba(255, 255, 255, 0.08);
-    color: #ffffff;
+    background: #eff6ff;
+    color: #1d4ed8;
 }
 
 .nav button.active {
@@ -305,9 +306,9 @@ button:focus-visible, input:focus-visible, select:focus-visible {
 
 .sidebar-status {
     padding: 14px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid var(--border);
     border-radius: 14px;
-    background: rgba(255, 255, 255, 0.04);
+    background: #f8fafc;
 }
 
 .live {
@@ -1214,57 +1215,6 @@ footer {
     .overlay.show { display: block; }
     .grid-two, .grid-three, .module-grid { grid-template-columns: 1fr; }
 }
-
-
-/* ================= LIGHT ENTERPRISE UI UPGRADE ================= */
-:root {
-    --bg: #f3f6fb;
-    --card: #ffffff;
-    --card2: #f7f9fd;
-    --text: #17243b;
-    --muted: #62718a;
-    --border: #dce4f0;
-    --primary: #285fe8;
-    --primary-dark: #1748c5;
-    --sidebar: #ffffff;
-    --sidebar-text: #52627a;
-    --shadow: 0 8px 24px rgba(31, 55, 95, .07);
-}
-body { background: var(--bg); color: var(--text); }
-.sidebar { border-right: 1px solid #e0e7f1; box-shadow: 3px 0 18px rgba(31,55,95,.035); }
-.brand { border-bottom: 1px solid var(--border); }
-.brand strong { color: #14213a; }
-.brand small, .nav-title, .sidebar-status small { color: #71809a; }
-.brand-logo { box-shadow: 0 5px 14px rgba(37,99,235,.18); }
-.nav button { color: #53627a; border-radius: 10px; margin: 2px 10px; width: calc(100% - 20px); }
-.nav button:hover { background: #f0f5ff; color: #1d4ed8; }
-.nav button.active { background: #eaf1ff; color: #1d4ed8; box-shadow: inset 3px 0 #2d63e9; }
-.sidebar-footer { border-top: 1px solid var(--border); }
-.topbar { background: rgba(255,255,255,.94); border-bottom: 1px solid var(--border); backdrop-filter: blur(12px); }
-.search { background: #f7f9fd; border-color: #dce4f0; }
-.icon-button, .menu-button { background: #fff; border-color: #dce4f0; color: #52627a; }
-.user-info strong { color: #17243b; }
-.hero { box-shadow: 0 12px 28px rgba(37,99,235,.13); }
-.card, .table-card, .panel, .chart-card { border-color: var(--border); box-shadow: var(--shadow); }
-.card:hover { box-shadow: 0 12px 28px rgba(31,55,95,.10); }
-.page-title p, .card-header p { color: var(--muted); }
-input, select, textarea, .form-control { background: #fff; color: #17243b; border-color: #d5deeb; }
-.status { font-weight: 700; }
-.theme-note { display:inline-flex; align-items:center; gap:7px; color:#60718b; font-size:12px; }
-.live-dot { box-shadow: 0 0 0 4px rgba(22,163,74,.10); }
-@media (max-width: 760px) {
-  :root { --sidebar-width: 270px; }
-  .topbar { padding: 12px 14px; }
-  .content { padding: 18px 14px 28px; }
-  .user-info { display:none; }
-  .hero { padding: 22px; }
-  .hero h1 { font-size: clamp(24px, 6vw, 34px); }
-  .hero-buttons { flex-wrap: wrap; }
-  .page-title { gap: 12px; align-items:flex-start; flex-wrap:wrap; }
-  table { min-width: 720px; }
-  .table-card { overflow-x:auto; }
-}
-
 </style>
 </head>
 
@@ -1372,9 +1322,21 @@ input, select, textarea, .form-control { background: #fff; color: #17243b; borde
         </button>
     </nav>
 
+
+        <div class="nav-title">Management & Planning</div>
+        <button data-page="pricing" data-role="admin,sales"><span class="nav-icon">₹</span> Product Cost & Pricing</button>
+        <button data-page="tasks" data-role="admin,production,hr"><span class="nav-icon">☷</span> Task Assignments & Team Work</button>
+        <button data-page="machines" data-role="admin,production"><span class="nav-icon">▦</span> Machine Performance</button>
+        <button data-page="bom" data-role="admin,production,inventory"><span class="nav-icon">☷</span> Parts List & BOM Builder</button>
+        <button data-page="crm" data-role="admin,sales"><span class="nav-icon">◎</span> Customer Orders & CRM</button>
+        <div class="nav-title">People & Factory Operations</div>
+        <button data-page="employees" data-role="admin,hr"><span class="nav-icon">♙</span> Employee Directory</button>
+        <button data-page="payroll" data-role="admin,hr"><span class="nav-icon">₹</span> Staff Payroll & Attendance</button>
+        <button data-page="maintenance" data-role="admin,production"><span class="nav-icon">⚒</span> Maintenance & Downtime</button>
+        <button data-page="shipping" data-role="admin,sales,inventory"><span class="nav-icon">⇢</span> Dispatch & Serial Registry</button>
+
     <div class="sidebar-footer">
         <div class="sidebar-status">
-            <div class="theme-note">✦ Light workspace · Responsive layout</div>
             <div class="live">
                 <span class="live-dot"></span>
                 Factory Online
@@ -1675,6 +1637,22 @@ input, select, textarea, .form-control { background: #fff; color: #17243b; borde
     </div>
 </div>
 
+
+<!-- ADVANCED ERP MODULES inspired by the uploaded reference screens -->
+<div class="page" id="pricing">
+ <div class="page-title"><div><h2>Product Cost & Selling Prices</h2><p>Understand component costs, overheads, selling price and margin per Vivobook unit.</p></div><button class="btn btn-primary" onclick="toast('Pricing updated','Demo selling price saved for this session.')">Save Selling Price</button></div>
+ <div class="kpis"><div class="card kpi"><div class="kpi-top">Raw Material Cost</div><div class="kpi-value">₹19,750</div><div class="kpi-bottom">Per laptop</div></div><div class="card kpi"><div class="kpi-top">Factory & Energy</div><div class="kpi-value">₹450</div><div class="kpi-bottom">Estimated overhead</div></div><div class="card kpi"><div class="kpi-top">Total Build Cost</div><div class="kpi-value">₹20,200</div><div class="kpi-bottom">Parts + overhead</div></div><div class="card kpi"><div class="kpi-top">Selling Price</div><div class="kpi-value">₹28,999</div><div class="kpi-bottom"><span class="up">30.3% gross margin</span></div></div></div>
+ <div class="card card-body"><div class="card-header"><div><h3>Profit Calculator</h3><p>Change the target batch size and selling price to estimate gross profit.</p></div></div><div class="filter-bar"><label>Build cost (₹) <input class="form-control" id="buildCost" type="number" value="20200"></label><label>Selling price (₹) <input class="form-control" id="sellPrice" type="number" value="28999"></label><label>Batch size <input class="form-control" id="batchSize" type="number" value="7600"></label><button class="btn btn-primary" onclick="calculateProfit()">Calculate</button></div><div class="module-grid"><div class="card stat-box"><small>Profit / Laptop</small><strong id="unitProfit">₹8,799</strong></div><div class="card stat-box"><small>Gross Margin</small><strong id="grossMargin">30.3%</strong></div><div class="card stat-box"><small>Batch Profit</small><strong id="batchProfit">₹6.68 Cr</strong></div></div><div class="table-container"><table><thead><tr><th>Component</th><th>Category</th><th>Supplier</th><th>Cost / Unit</th><th>Cost Share</th></tr></thead><tbody><tr><td>Intel Core i5 Processor</td><td>Semiconductor</td><td>Intel Distribution</td><td>₹8,200</td><td>40.6%</td></tr><tr><td>15.6-inch FHD Display</td><td>Display</td><td>Panel Technologies</td><td>₹4,800</td><td>23.8%</td></tr><tr><td>16GB RAM + 512GB SSD</td><td>Memory & Storage</td><td>Component Hub</td><td>₹2,900</td><td>14.4%</td></tr><tr><td>Battery, chassis, keyboard & other parts</td><td>Assembly</td><td>Multiple suppliers</td><td>₹3,850</td><td>19.1%</td></tr></tbody></table></div></div>
+</div>
+<div class="page" id="tasks"><div class="page-title"><div><h2>Task Assignments & Team Work Hub</h2><p>Assign operational work, monitor progress and identify delayed tasks across departments.</p></div><button class="btn btn-primary" onclick="addTask()">＋ Assign Task</button></div><div class="module-grid"><div class="card stat-box"><small>Total Tasks</small><strong id="taskTotal">9</strong></div><div class="card stat-box"><small>In Progress</small><strong>5</strong></div><div class="card stat-box"><small>Awaiting Approval</small><strong>1</strong></div><div class="card stat-box"><small>Completed</small><strong>3</strong></div></div><div class="grid-three" id="departmentCards"><div class="card card-body"><h3>SMT & PCB Production</h3><p>Manager: Rajesh Sharma</p><div class="progress-track"><div class="progress-bar" style="width:65%"></div></div><small>65% complete · Critical risk</small></div><div class="card card-body"><h3>Warehouse & Inventory</h3><p>Manager: Kavita Patel</p><div class="progress-track"><div class="progress-bar" style="width:90%"></div></div><small>90% complete · Healthy</small></div><div class="card card-body"><h3>Quality Assurance</h3><p>Manager: Arun Verma</p><div class="progress-track"><div class="progress-bar" style="width:50%"></div></div><small>50% complete · Needs attention</small></div></div><div class="card"><div class="table-container"><table id="taskTable"><thead><tr><th>Task ID</th><th>Task / Description</th><th>Department</th><th>Assigned To</th><th>Priority</th><th>Progress</th><th>Status</th></tr></thead><tbody><tr><td>TSK-104</td><td>Verify incoming display panels</td><td>Quality</td><td>Priya K.</td><td>High</td><td>70%</td><td><span class="status status-warning">In Progress</span></td></tr><tr><td>TSK-105</td><td>Reconcile SSD stock</td><td>Warehouse</td><td>Raj M.</td><td>Medium</td><td>100%</td><td><span class="status status-success">Completed</span></td></tr></tbody></table></div></div></div>
+<div class="page" id="machines"><div class="page-title"><div><h2>Factory Production & Machine Overview</h2><p>Monitor six assembly lines, first-pass quality and workstation performance.</p></div><span class="status status-success">6 / 6 Lines Active</span></div><div class="kpis"><div class="card kpi"><div class="kpi-top">Units Assembled Today</div><div class="kpi-value">7,080 / 7,600</div><div class="kpi-bottom">93.1% of shift target</div></div><div class="card kpi"><div class="kpi-top">First-Time Quality</div><div class="kpi-value">99.4%</div><div class="kpi-bottom">24 defects per million</div></div><div class="card kpi"><div class="kpi-top">Serial Registry</div><div class="kpi-value">100%</div><div class="kpi-bottom">7,210 units verified</div></div><div class="card kpi"><div class="kpi-top">Critical Chip Stock</div><div class="kpi-value">4.2 days</div><div class="kpi-bottom">Reorder recommended</div></div></div><div class="card card-body"><h3>Smartphone / Laptop Assembly Stages</h3><div class="progress-list" id="machineLines"></div></div></div>
+<div class="page" id="bom"><div class="page-title"><div><h2>Multi-Level Bill of Materials (BOM) Builder</h2><p>Hierarchical sub-assembly breakdown, raw material costs and revision control.</p></div><button class="btn btn-primary" onclick="addBomPart()">＋ Add BOM Part</button></div><div class="card card-body"><div class="filter-bar"><label>Active BOM <select class="form-control"><option>VB-2026-0042 · Vivobook 15 Master BOM · Rev C</option><option>VB-2026-0048 · Vivobook S 14 BOM · Rev A</option></select></label><span class="status status-success">Released</span></div><div class="module-grid"><div class="card stat-box"><small>Components</small><strong id="bomCount">7</strong></div><div class="card stat-box"><small>Estimated Unit Cost</small><strong>₹20,200</strong></div><div class="card stat-box"><small>Revision</small><strong>Rev C</strong></div></div><div class="table-container"><table id="bomTable"><thead><tr><th>Level / Part Number</th><th>Description</th><th>Category</th><th>Qty / UOM</th><th>Unit Cost</th><th>Extended Cost</th><th>Material</th></tr></thead><tbody><tr><td>L0 · ASM-VB-15-001</td><td>Vivobook 15 Final Assembly</td><td>Sub-assembly</td><td>1 EA</td><td>₹20,200</td><td>₹20,200</td><td>Complete laptop</td></tr><tr><td>L1 · CPU-I5-13420H</td><td>Intel Core i5 Processor</td><td>Electronics</td><td>1 EA</td><td>₹8,200</td><td>₹8,200</td><td>Semiconductor</td></tr><tr><td>L1 · DISP-156-FHD</td><td>15.6-inch FHD Panel</td><td>Display</td><td>1 EA</td><td>₹4,800</td><td>₹4,800</td><td>LCD assembly</td></tr><tr><td>L1 · RAM-16-DDR4</td><td>16GB RAM Module</td><td>Memory</td><td>1 EA</td><td>₹1,600</td><td>₹1,600</td><td>DDR4</td></tr><tr><td>L1 · SSD-512-NVME</td><td>512GB NVMe SSD</td><td>Storage</td><td>1 EA</td><td>₹1,300</td><td>₹1,300</td><td>NVMe</td></tr><tr><td>L1 · BAT-42WH</td><td>42Wh Battery Pack</td><td>Power</td><td>1 EA</td><td>₹1,250</td><td>₹1,250</td><td>Li-ion</td></tr><tr><td>L1 · CHASSIS-AL</td><td>Aluminium Chassis & Keyboard</td><td>Housing</td><td>1 SET</td><td>₹3,050</td><td>₹3,050</td><td>Aluminium alloy</td></tr></tbody></table></div></div></div>
+<div class="page" id="employees"><div class="page-title"><div><h2>Employee Directory & Digital Dossiers</h2><p>Employee records, department assignments, employment status and document tracking.</p></div><button class="btn btn-primary" onclick="addEmployee()">＋ Onboard Employee</button></div><div class="filter-bar"><input class="form-control" id="employeeSearch" placeholder="Search name, code or department..." oninput="filterEmployees()"><select class="form-control" id="employeeStatus" onchange="filterEmployees()"><option value="all">All statuses</option><option>Active</option><option>Probation</option><option>On Leave</option></select></div><div class="card"><div class="table-container"><table id="employeeTable"><thead><tr><th>Code / ID</th><th>Employee Name</th><th>Department & Designation</th><th>Status</th><th>Monthly Salary</th><th>Joining Date</th><th>Action</th></tr></thead><tbody><tr><td>EMP-001</td><td>Sunil Rao</td><td>Plant Operations Manager</td><td><span class="status status-success">Active</span></td><td>₹1,25,000</td><td>15 Mar 2022</td><td><button class="btn btn-outline btn-small" onclick="toast('Employee dossier','Demo employee record opened.')">View Dossier</button></td></tr><tr><td>EMP-002</td><td>Rajesh Mehra</td><td>Warehouse Supervisor</td><td><span class="status status-success">Active</span></td><td>₹72,000</td><td>10 Jan 2023</td><td><button class="btn btn-outline btn-small" onclick="toast('Employee dossier','Demo employee record opened.')">View Dossier</button></td></tr><tr><td>EMP-015</td><td>Amit Kalyan</td><td>CNC Machine Lead</td><td><span class="status status-success">Active</span></td><td>₹48,000</td><td>01 Jun 2024</td><td><button class="btn btn-outline btn-small" onclick="toast('Employee dossier','Demo employee record opened.')">View Dossier</button></td></tr><tr><td>EMP-042</td><td>Pooja Sharma</td><td>Quality Inspector</td><td><span class="status status-warning">Probation</span></td><td>₹32,000</td><td>18 Aug 2026</td><td><button class="btn btn-outline btn-small" onclick="toast('Employee dossier','Demo employee record opened.')">View Dossier</button></td></tr></tbody></table></div></div></div>
+<div class="page" id="crm"><div class="page-title"><div><h2>Customer Orders & CRM Command Hub</h2><p>Track customer opportunities, quotations, confirmed orders and delivery commitments.</p></div><button class="btn btn-primary" onclick="addLead()">＋ Capture New Lead</button></div><div class="kpis"><div class="card kpi"><div class="kpi-top">Active Pipeline</div><div class="kpi-value">₹1.42 Cr</div><div class="kpi-bottom">32 leads in progress</div></div><div class="card kpi"><div class="kpi-top">Won Revenue</div><div class="kpi-value">₹98 L</div><div class="kpi-bottom">24 confirmed orders</div></div><div class="card kpi"><div class="kpi-top">Win Conversion</div><div class="kpi-value">72.4%</div><div class="kpi-bottom">Above target</div></div><div class="card kpi"><div class="kpi-top">Client Retention</div><div class="kpi-value">94.8%</div><div class="kpi-bottom">Enterprise accounts</div></div></div><div class="grid-two"><div class="card card-body"><h3>Sales Pipeline Stages</h3><div class="progress-list"><div class="progress-item"><div class="progress-meta"><span>Discovery</span><strong>₹34 L</strong></div><div class="progress-track"><div class="progress-bar" style="width:72%"></div></div></div><div class="progress-item"><div class="progress-meta"><span>Technical Evaluation</span><strong>₹28.5 L</strong></div><div class="progress-track"><div class="progress-bar" style="width:60%"></div></div></div><div class="progress-item"><div class="progress-meta"><span>Quotation Submitted</span><strong>₹39 L</strong></div><div class="progress-track"><div class="progress-bar" style="width:84%"></div></div></div><div class="progress-item"><div class="progress-meta"><span>Negotiation</span><strong>₹26.5 L</strong></div><div class="progress-track"><div class="progress-bar" style="width:48%"></div></div></div></div></div><div class="card card-body"><h3>Confirmed Customer Orders</h3><div class="table-container"><table id="crmTable"><thead><tr><th>Order</th><th>Customer</th><th>Quantity</th><th>Value</th><th>Status</th></tr></thead><tbody><tr><td>SO-2026-0142</td><td>Bharat Forge</td><td>500</td><td>₹1,18,00,000</td><td><span class="status status-success">Scheduled</span></td></tr><tr><td>SO-2026-0144</td><td>Tata Auto Systems</td><td>250</td><td>₹84,00,000</td><td><span class="status status-info">Confirmed</span></td></tr></tbody></table></div></div></div></div>
+<div class="page" id="payroll"><div class="page-title"><div><h2>Staff Monthly Salaries & Wage Processing</h2><p>Track attendance, payroll runs, approvals and wage-processing status.</p></div><button class="btn btn-primary" onclick="addPayroll()">＋ Add Payroll Entry</button></div><div class="kpis"><div class="card kpi"><div class="kpi-top">Active Payroll Entries</div><div class="kpi-value" id="payrollCount">22</div><div class="kpi-bottom">Current pay cycle</div></div><div class="card kpi"><div class="kpi-top">On-Time Completion</div><div class="kpi-value">99.7%</div><div class="kpi-bottom">Within factory target</div></div><div class="card kpi"><div class="kpi-top">Urgent Approvals</div><div class="kpi-value">3</div><div class="kpi-bottom">Manager sign-off needed</div></div><div class="card kpi"><div class="kpi-top">Staff on Shift</div><div class="kpi-value">338</div><div class="kpi-bottom">Attendance verified</div></div></div><div class="card"><div class="table-container"><table id="payrollTable"><thead><tr><th>Tracking Code</th><th>Work Item / Description</th><th>Factory Section</th><th>Assigned Staff</th><th>Status Reading</th><th>Status</th><th>Action</th></tr></thead><tbody><tr><td>PAYR-2026-001</td><td>Monthly salary batch</td><td>Primary Stream</td><td>Payroll Admin</td><td>99.4% verified</td><td><span class="status status-success">Completed</span></td><td><button class="btn btn-outline btn-small" onclick="toast('Payroll','Entry signed off in demo.')">Sign Off</button></td></tr><tr><td>PAYR-2026-002</td><td>Shift overtime review</td><td>Assembly Line B</td><td>HR Manager</td><td>Awaiting sign-off</td><td><span class="status status-warning">Pending Review</span></td><td><button class="btn btn-outline btn-small" onclick="toast('Payroll','Review recorded in demo.')">Review</button></td></tr><tr><td>PAYR-2026-003</td><td>Attendance reconciliation</td><td>Quality Station 01</td><td>HR Executive</td><td>Variance +0.42%</td><td><span class="status status-danger">Flagged</span></td><td><button class="btn btn-outline btn-small" onclick="toast('Payroll','Flag opened for review.')">Review</button></td></tr></tbody></table></div></div></div>
+<div class="page" id="maintenance"><div class="page-title"><div><h2>Maintenance & Downtime</h2><p>Track preventive maintenance, breakdown reports and machine service schedules.</p></div><button class="btn btn-primary" onclick="toast('Maintenance request','Demo maintenance ticket created.')">＋ Raise Maintenance Ticket</button></div><div class="module-grid"><div class="card stat-box"><small>Machines Online</small><strong>42 / 45</strong></div><div class="card stat-box"><small>Open Work Orders</small><strong>6</strong></div><div class="card stat-box"><small>Mean Time to Repair</small><strong>38 min</strong></div><div class="card stat-box"><small>Planned Maintenance</small><strong>94%</strong></div></div><div class="card"><div class="table-container"><table><thead><tr><th>Machine ID</th><th>Machine</th><th>Line</th><th>Last Service</th><th>Next Service</th><th>Condition</th><th>Action</th></tr></thead><tbody><tr><td>MCH-014</td><td>Automated Screw Driver</td><td>Assembly A</td><td>02 Oct 2026</td><td>16 Oct 2026</td><td><span class="status status-success">Operational</span></td><td><button class="btn btn-outline btn-small" onclick="toast('Machine details','Maintenance history opened.')">View Log</button></td></tr><tr><td>MCH-022</td><td>Thermal Test Chamber</td><td>Quality B</td><td>21 Sep 2026</td><td>13 Oct 2026</td><td><span class="status status-warning">Service Due</span></td><td><button class="btn btn-primary btn-small" onclick="toast('Maintenance scheduled','Service visit added to demo schedule.')">Schedule</button></td></tr></tbody></table></div></div></div>
+<div class="page" id="shipping"><div class="page-title"><div><h2>Dispatch & Serial Number Registry</h2><p>Manage packed units, shipment tracking, warranty traceability and delivery status.</p></div><button class="btn btn-primary" onclick="toast('Dispatch created','A demo dispatch batch has been added.')">＋ Create Dispatch</button></div><div class="kpis"><div class="card kpi"><div class="kpi-top">Ready to Dispatch</div><div class="kpi-value">428</div></div><div class="card kpi"><div class="kpi-top">In Transit</div><div class="kpi-value">1,204</div></div><div class="card kpi"><div class="kpi-top">Delivered This Month</div><div class="kpi-value">8,492</div></div><div class="card kpi"><div class="kpi-top">Serials Verified</div><div class="kpi-value">100%</div></div></div><div class="card"><div class="table-container"><table><thead><tr><th>Dispatch ID</th><th>Customer</th><th>Model</th><th>Units</th><th>Tracking</th><th>Delivery Date</th><th>Status</th></tr></thead><tbody><tr><td>DSP-2026-310</td><td>Bharat Forge</td><td>Vivobook 15</td><td>500</td><td>TRK-IND-774201</td><td>16 Oct 2026</td><td><span class="status status-info">In Transit</span></td></tr><tr><td>DSP-2026-311</td><td>Tata Auto Systems</td><td>Vivobook S 14</td><td>250</td><td>TRK-IND-774228</td><td>18 Oct 2026</td><td><span class="status status-success">Packed</span></td></tr></tbody></table></div></div></div>
+
 </section>
 
 </main>
@@ -1954,54 +1932,12 @@ function toast(title, msg) {
     setTimeout(() => el.remove(), 3000);
 }
 
-// Theme Toggle — light theme is the default and preference is remembered.
-const savedTheme = localStorage.getItem('vivobook-erp-theme') || 'light';
-document.body.dataset.theme = savedTheme;
-document.getElementById('themeButton').textContent = savedTheme === 'dark' ? '☾' : '☼';
-document.getElementById('themeButton').setAttribute('aria-label', 'Switch appearance theme');
+// Theme Toggle
 document.getElementById('themeButton').addEventListener('click', () => {
-    const nextTheme = document.body.dataset.theme === 'dark' ? 'light' : 'dark';
-    document.body.dataset.theme = nextTheme;
-    localStorage.setItem('vivobook-erp-theme', nextTheme);
-    document.getElementById('themeButton').textContent = nextTheme === 'dark' ? '☾' : '☼';
-    toast('Appearance updated', `${nextTheme === 'light' ? 'Light' : 'Dark'} theme enabled`);
-});
-
-// Global module search: type a module name to filter the navigation instantly.
-const globalSearch = document.getElementById('globalSearch');
-if (globalSearch) {
-  globalSearch.addEventListener('input', () => {
-    const query = globalSearch.value.trim().toLowerCase();
-    document.querySelectorAll('#mainNav button').forEach(item => {
-      item.style.display = (!query || item.textContent.toLowerCase().includes(query)) &&
-        (item.dataset.role === 'all' || !currentUser || currentUser.role === 'admin' || item.dataset.role.split(',').includes(currentUser.role)) ? 'flex' : 'none';
-    });
-  });
-  globalSearch.addEventListener('keydown', e => {
-    if (e.key === 'Enter') {
-      const first = [...document.querySelectorAll('#mainNav button')].find(item => item.style.display !== 'none' && item.textContent.trim());
-      if (first) { showPage(first.dataset.page); globalSearch.value = ''; globalSearch.dispatchEvent(new Event('input')); }
-    }
-    if (e.key === 'Escape') { globalSearch.value = ''; globalSearch.dispatchEvent(new Event('input')); }
-  });
-}
-
-// Notification centre with useful prototype alerts.
-const notificationButton = document.getElementById('notificationButton');
-if (notificationButton) notificationButton.addEventListener('click', () => {
-  const low = inventory.filter(item => item.stock <= item.reorder);
-  const message = low.length ? `${low.length} inventory item(s) need replenishment.` : 'Factory is online. Review production progress, stock levels, and pending purchase orders.';
-  toast('Factory notifications', message);
-});
-
-// Keyboard shortcuts: Ctrl/Cmd+K focuses search; Escape closes open dialogs and mobile navigation.
-document.addEventListener('keydown', e => {
-  if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'k') { e.preventDefault(); globalSearch?.focus(); }
-  if (e.key === 'Escape') {
-    document.querySelectorAll('.modal-background.show').forEach(modal => closeModal(modal));
-    document.getElementById('sidebar')?.classList.remove('open');
-    document.getElementById('overlay')?.classList.remove('show');
-  }
+    const isDark = document.body.dataset.theme === 'dark';
+    document.body.dataset.theme = isDark ? 'light' : 'dark';
+    localStorage.setItem('vivobook-erp-theme', document.body.dataset.theme);
+    document.getElementById('themeButton').textContent = isDark ? '☼' : '☾';
 });
 
 // Mobile Sidebar Menu
@@ -2025,6 +1961,21 @@ document.querySelectorAll('form').forEach(form => {
     });
 });
 
+
+// Extra reference-inspired module interactions
+function calculateProfit(){const c=Number(document.getElementById('buildCost').value)||0;const p=Number(document.getElementById('sellPrice').value)||0;const q=Number(document.getElementById('batchSize').value)||0;const profit=p-c;document.getElementById('unitProfit').textContent='₹'+profit.toLocaleString('en-IN');document.getElementById('grossMargin').textContent=(p?((profit/p)*100):0).toFixed(1)+'%';document.getElementById('batchProfit').textContent='₹'+(profit*q).toLocaleString('en-IN');}
+function addTask(){const t=document.querySelector('#taskTable tbody');const n=t.rows.length+101;const r=t.insertRow();r.innerHTML=`<td>TSK-${n}</td><td>New factory follow-up task</td><td>Operations</td><td>Unassigned</td><td>Medium</td><td>0%</td><td><span class="status status-info">New</span></td>`;document.getElementById('taskTotal').textContent=Number(document.getElementById('taskTotal').textContent)+1;toast('Task assigned','A new demo task was added to the work queue.');}
+function addBomPart(){const t=document.querySelector('#bomTable tbody');const r=t.insertRow();r.innerHTML='<td>L1 · PART-NEW</td><td>New component (edit in project source)</td><td>Raw material</td><td>1 EA</td><td>₹0</td><td>₹0</td><td>Unspecified</td>';document.getElementById('bomCount').textContent=t.rows.length;toast('BOM updated','A placeholder component was added.');}
+function addEmployee(){const t=document.querySelector('#employeeTable tbody');const n=t.rows.length+50;const r=t.insertRow();r.innerHTML=`<td>EMP-${String(n).padStart(3,'0')}</td><td>New Employee</td><td>Unassigned</td><td><span class="status status-warning">Probation</span></td><td>₹0</td><td>Today</td><td><button class="btn btn-outline btn-small" onclick="toast('Employee dossier','Demo employee record opened.')">View Dossier</button></td>`;toast('Employee added','A demo employee row was created.');}
+function addLead(){const t=document.querySelector('#crmTable tbody');const r=t.insertRow();r.innerHTML=`<td>LEAD-${Date.now().toString().slice(-5)}</td><td>New Customer Lead</td><td>—</td><td>Quotation pending</td><td><span class="status status-warning">Discovery</span></td>`;toast('Lead captured','A new demo lead was added to the pipeline.');}
+function addPayroll(){const t=document.querySelector('#payrollTable tbody');const r=t.insertRow();r.innerHTML=`<td>PAYR-${Date.now().toString().slice(-5)}</td><td>New payroll review</td><td>Factory</td><td>HR Admin</td><td>Awaiting review</td><td><span class="status status-warning">Pending Review</span></td><td><button class="btn btn-outline btn-small" onclick="toast('Payroll','Review recorded in demo.')">Review</button></td>`;document.getElementById('payrollCount').textContent=Number(document.getElementById('payrollCount').textContent)+1;toast('Payroll entry added','A demo payroll entry was created.');}
+function filterEmployees(){const q=(document.getElementById('employeeSearch').value||'').toLowerCase();const status=document.getElementById('employeeStatus').value;document.querySelectorAll('#employeeTable tbody tr').forEach(r=>{const text=r.innerText.toLowerCase();const okStatus=status==='all'||text.includes(status.toLowerCase());r.style.display=text.includes(q)&&okStatus?'':'none';});}
+const ml=document.getElementById('machineLines');if(ml){ml.innerHTML=[['Line 1 · Mainboard Assembly',7420,7600,99.4],['Line 2 · Display Fitting',7350,7600,98.8],['Line 3 · Camera & Sensor Calibration',7290,7600,98.2],['Line 4 · OS Loading & Signal Test',7210,7600,99.1],['Line 5 · Battery & Durability Test',7150,7600,97.9],['Line 6 · Packing & Serial Sticker',7080,7600,99.8]].map(x=>`<div class="progress-item"><div class="progress-meta"><span>${x[0]}</span><strong>${x[1].toLocaleString()} / ${x[2].toLocaleString()} · ${x[3]}% pass</strong></div><div class="progress-track"><div class="progress-bar" style="width:${x[1]/x[2]*100}%"></div></div></div>`).join('');}
+const searchBox=document.getElementById('globalSearch');if(searchBox){searchBox.addEventListener('keydown',e=>{if(e.key==='Enter'){const q=searchBox.value.trim().toLowerCase();const btn=[...document.querySelectorAll('#mainNav button[data-page]')].find(b=>b.innerText.toLowerCase().includes(q)||b.dataset.page.includes(q));if(btn){showPage(btn.dataset.page);toast('Module opened',btn.innerText.trim());}else toast('No module found','Try Production, BOM, Pricing, Employees or CRM.');}});}
+document.getElementById('notificationButton')?.addEventListener('click',()=>toast('Factory notifications','2 low-stock components · 1 machine service due · 3 approvals pending.'));
+
+// Restore theme preference (light by default)
+if(localStorage.getItem('vivobook-erp-theme')==='dark'){document.body.dataset.theme='dark';document.getElementById('themeButton').textContent='☾';}
 // Initialize
 renderOrders();
 renderInventory();
