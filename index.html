@@ -3,9 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#0f172a">
+<meta name="theme-color" content="#f8fafc">
 <meta name="description" content="ASUS Vivobook Manufacturing ERP System Prototype">
-<title>ASUS Vivobook Manufacturing ERP</title>
+<title>ASUS Vivobook Manufacturing ERP | Factory Operations Suite</title>
 
 <style>
 :root {
@@ -1214,6 +1214,57 @@ footer {
     .overlay.show { display: block; }
     .grid-two, .grid-three, .module-grid { grid-template-columns: 1fr; }
 }
+
+
+/* ================= LIGHT ENTERPRISE UI UPGRADE ================= */
+:root {
+    --bg: #f3f6fb;
+    --card: #ffffff;
+    --card2: #f7f9fd;
+    --text: #17243b;
+    --muted: #62718a;
+    --border: #dce4f0;
+    --primary: #285fe8;
+    --primary-dark: #1748c5;
+    --sidebar: #ffffff;
+    --sidebar-text: #52627a;
+    --shadow: 0 8px 24px rgba(31, 55, 95, .07);
+}
+body { background: var(--bg); color: var(--text); }
+.sidebar { border-right: 1px solid #e0e7f1; box-shadow: 3px 0 18px rgba(31,55,95,.035); }
+.brand { border-bottom: 1px solid var(--border); }
+.brand strong { color: #14213a; }
+.brand small, .nav-title, .sidebar-status small { color: #71809a; }
+.brand-logo { box-shadow: 0 5px 14px rgba(37,99,235,.18); }
+.nav button { color: #53627a; border-radius: 10px; margin: 2px 10px; width: calc(100% - 20px); }
+.nav button:hover { background: #f0f5ff; color: #1d4ed8; }
+.nav button.active { background: #eaf1ff; color: #1d4ed8; box-shadow: inset 3px 0 #2d63e9; }
+.sidebar-footer { border-top: 1px solid var(--border); }
+.topbar { background: rgba(255,255,255,.94); border-bottom: 1px solid var(--border); backdrop-filter: blur(12px); }
+.search { background: #f7f9fd; border-color: #dce4f0; }
+.icon-button, .menu-button { background: #fff; border-color: #dce4f0; color: #52627a; }
+.user-info strong { color: #17243b; }
+.hero { box-shadow: 0 12px 28px rgba(37,99,235,.13); }
+.card, .table-card, .panel, .chart-card { border-color: var(--border); box-shadow: var(--shadow); }
+.card:hover { box-shadow: 0 12px 28px rgba(31,55,95,.10); }
+.page-title p, .card-header p { color: var(--muted); }
+input, select, textarea, .form-control { background: #fff; color: #17243b; border-color: #d5deeb; }
+.status { font-weight: 700; }
+.theme-note { display:inline-flex; align-items:center; gap:7px; color:#60718b; font-size:12px; }
+.live-dot { box-shadow: 0 0 0 4px rgba(22,163,74,.10); }
+@media (max-width: 760px) {
+  :root { --sidebar-width: 270px; }
+  .topbar { padding: 12px 14px; }
+  .content { padding: 18px 14px 28px; }
+  .user-info { display:none; }
+  .hero { padding: 22px; }
+  .hero h1 { font-size: clamp(24px, 6vw, 34px); }
+  .hero-buttons { flex-wrap: wrap; }
+  .page-title { gap: 12px; align-items:flex-start; flex-wrap:wrap; }
+  table { min-width: 720px; }
+  .table-card { overflow-x:auto; }
+}
+
 </style>
 </head>
 
@@ -1323,6 +1374,7 @@ footer {
 
     <div class="sidebar-footer">
         <div class="sidebar-status">
+            <div class="theme-note">✦ Light workspace · Responsive layout</div>
             <div class="live">
                 <span class="live-dot"></span>
                 Factory Online
@@ -1902,11 +1954,54 @@ function toast(title, msg) {
     setTimeout(() => el.remove(), 3000);
 }
 
-// Theme Toggle
+// Theme Toggle — light theme is the default and preference is remembered.
+const savedTheme = localStorage.getItem('vivobook-erp-theme') || 'light';
+document.body.dataset.theme = savedTheme;
+document.getElementById('themeButton').textContent = savedTheme === 'dark' ? '☾' : '☼';
+document.getElementById('themeButton').setAttribute('aria-label', 'Switch appearance theme');
 document.getElementById('themeButton').addEventListener('click', () => {
-    const isDark = document.body.dataset.theme === 'dark';
-    document.body.dataset.theme = isDark ? 'light' : 'dark';
-    document.getElementById('themeButton').textContent = isDark ? '☼' : '☾';
+    const nextTheme = document.body.dataset.theme === 'dark' ? 'light' : 'dark';
+    document.body.dataset.theme = nextTheme;
+    localStorage.setItem('vivobook-erp-theme', nextTheme);
+    document.getElementById('themeButton').textContent = nextTheme === 'dark' ? '☾' : '☼';
+    toast('Appearance updated', `${nextTheme === 'light' ? 'Light' : 'Dark'} theme enabled`);
+});
+
+// Global module search: type a module name to filter the navigation instantly.
+const globalSearch = document.getElementById('globalSearch');
+if (globalSearch) {
+  globalSearch.addEventListener('input', () => {
+    const query = globalSearch.value.trim().toLowerCase();
+    document.querySelectorAll('#mainNav button').forEach(item => {
+      item.style.display = (!query || item.textContent.toLowerCase().includes(query)) &&
+        (item.dataset.role === 'all' || !currentUser || currentUser.role === 'admin' || item.dataset.role.split(',').includes(currentUser.role)) ? 'flex' : 'none';
+    });
+  });
+  globalSearch.addEventListener('keydown', e => {
+    if (e.key === 'Enter') {
+      const first = [...document.querySelectorAll('#mainNav button')].find(item => item.style.display !== 'none' && item.textContent.trim());
+      if (first) { showPage(first.dataset.page); globalSearch.value = ''; globalSearch.dispatchEvent(new Event('input')); }
+    }
+    if (e.key === 'Escape') { globalSearch.value = ''; globalSearch.dispatchEvent(new Event('input')); }
+  });
+}
+
+// Notification centre with useful prototype alerts.
+const notificationButton = document.getElementById('notificationButton');
+if (notificationButton) notificationButton.addEventListener('click', () => {
+  const low = inventory.filter(item => item.stock <= item.reorder);
+  const message = low.length ? `${low.length} inventory item(s) need replenishment.` : 'Factory is online. Review production progress, stock levels, and pending purchase orders.';
+  toast('Factory notifications', message);
+});
+
+// Keyboard shortcuts: Ctrl/Cmd+K focuses search; Escape closes open dialogs and mobile navigation.
+document.addEventListener('keydown', e => {
+  if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'k') { e.preventDefault(); globalSearch?.focus(); }
+  if (e.key === 'Escape') {
+    document.querySelectorAll('.modal-background.show').forEach(modal => closeModal(modal));
+    document.getElementById('sidebar')?.classList.remove('open');
+    document.getElementById('overlay')?.classList.remove('show');
+  }
 });
 
 // Mobile Sidebar Menu
