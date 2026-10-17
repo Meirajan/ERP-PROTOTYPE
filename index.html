@@ -1324,6 +1324,149 @@ button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible
 .toast { pointer-events: auto; }
 @media (max-width: 600px) { .form-actions { display: flex; flex-wrap: wrap; gap: 8px; } .form-actions button { flex: 1 1 120px; } .page-title > button { max-width: 100%; } }
 
+
+
+/* Advanced department workspace enhancements */
+.login-card{max-width:1080px}.login-form-container{padding:30px}.demo-roles-grid{grid-template-columns:repeat(2,minmax(0,1fr));max-height:290px;overflow:auto;padding:2px 5px 2px 0}
+.demo-role-btn{min-height:58px;line-height:1.3}
+.demo-role-btn .role-icon{font-size:20px;flex:0 0 auto}
+.demo-role-btn.is-selected{border-color:#2563eb;background:#dbeafe;color:#1d4ed8;box-shadow:0 0 0 2px rgba(37,99,235,.12)}
+.login-form-container .field{margin-bottom:12px}
+.login-form-container .form-control{min-height:46px}
+.login-help{margin-top:10px;color:#64748b;font-size:11px;line-height:1.5}
+.login-error{display:none;color:#b91c1c;background:#fee2e2;border:1px solid #fecaca;padding:9px 11px;border-radius:9px;font-size:12px;margin:0 0 10px}
+.login-error.show{display:block}
+.demo-role-btn .role-copy{display:flex;flex-direction:column;gap:3px}
+.demo-role-btn .role-copy small{font-size:10px;color:#64748b;font-weight:500}
+.role-welcome{display:flex;justify-content:space-between;gap:16px;align-items:center;margin-bottom:18px;padding:18px 20px;border:1px solid var(--border);border-radius:16px;background:linear-gradient(120deg,var(--card),var(--card2))}
+.role-welcome h2{font-size:20px;margin-bottom:4px}.role-welcome p{color:var(--muted);font-size:13px}
+.role-pill{border-radius:999px;background:#dbeafe;color:#1d4ed8;padding:7px 12px;font-size:11px;font-weight:800;white-space:nowrap}
+.live-report-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin:18px 0}
+.live-report{padding:18px;background:var(--card);border:1px solid var(--border);border-radius:16px;min-width:0}
+.live-report h3{font-size:15px;margin-bottom:4px}.live-report p{font-size:12px;color:var(--muted)}
+.report-bars{display:flex;align-items:flex-end;gap:10px;height:155px;padding-top:20px;margin-top:12px;border-bottom:1px solid var(--border)}
+.report-bar-wrap{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:100%;gap:6px;min-width:0}
+.report-bar{width:min(34px,75%);min-height:4px;border-radius:7px 7px 0 0;background:linear-gradient(180deg,#60a5fa,#2563eb);transition:height .45s}
+.report-bar-wrap small{font-size:10px;color:var(--muted)}
+.report-bar-wrap b{font-size:10px}
+.module-intro{padding:18px 20px;border-radius:16px;background:linear-gradient(120deg,#eff6ff,#f5f3ff);color:#172554;margin-bottom:18px}
+.module-intro h3{font-size:18px;margin-bottom:5px}.module-intro p{font-size:13px;color:#475569}
+.module-actions{display:flex;flex-wrap:wrap;gap:10px;margin:14px 0}
+.activity-feed{display:grid;gap:10px}.activity-row{display:flex;align-items:flex-start;gap:10px;padding:11px;border-radius:10px;background:var(--card2)}
+.activity-row span{font-size:18px}.activity-row strong{display:block;font-size:12px}.activity-row small{color:var(--muted);font-size:11px}
+@media(max-width:640px){.demo-roles-grid{grid-template-columns:repeat(2,minmax(0,1fr));max-height:360px}.live-report-grid{grid-template-columns:1fr}.role-welcome{align-items:flex-start;flex-direction:column}.role-pill{white-space:normal}}
+
+
+/* Readability and uncluttered login improvements */
+body{font-size:15px;line-height:1.6}
+.login-screen{background:radial-gradient(circle at 12% 10%,#dbeafe 0,transparent 32%),linear-gradient(135deg,#eff6ff,#f8fafc 58%,#e0e7ff);padding:24px;overflow-y:auto}
+.login-card{max-width:1120px;max-height:min(92vh,900px);border:1px solid #dbe4f0;box-shadow:0 28px 80px rgba(15,23,42,.20)}
+.login-banner{background:linear-gradient(145deg,#0f172a 0%,#1d4ed8 62%,#2563eb 100%);padding:44px;min-height:100%;position:relative}
+.login-banner h2{font-size:clamp(28px,3vw,36px);letter-spacing:-.6px}
+.login-banner p{font-size:16px;line-height:1.65;color:#e0ecff}
+.login-form-container{padding:32px 34px;min-width:0}
+.login-form-container h3{font-size:26px;line-height:1.25}
+.login-form-container>p{font-size:15px;line-height:1.5;color:#475569;margin-bottom:16px}
+.role-search-label{display:block;font-size:14px;font-weight:750;color:#334155;margin:0 0 6px}
+.role-search{width:100%;margin-bottom:12px;min-height:46px;border:1px solid #cbd5e1;background:#fff;color:#0f172a;font-size:15px;padding:11px 13px;border-radius:10px}
+.demo-roles-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px;max-height:260px;overflow:auto;padding:3px 6px 4px 2px;margin-bottom:12px;align-content:start}
+.demo-role-btn{min-height:64px;padding:10px 12px;font-size:14px;border-color:#d5deea;background:#fff;color:#1e293b;gap:10px}
+.demo-role-btn .role-icon{width:34px;height:34px;display:grid;place-items:center;border-radius:10px;background:#eff6ff;font-size:21px}
+.demo-role-btn .role-copy strong{font-size:13px;line-height:1.25;color:inherit}
+.demo-role-btn .role-copy small{font-size:11px;line-height:1.35;color:#64748b}
+.demo-role-btn.is-admin-role{border-color:#93c5fd;background:#eff6ff}
+.demo-role-btn.is-selected{border-color:#1d4ed8;background:#dbeafe;color:#1e3a8a;box-shadow:0 0 0 2px rgba(37,99,235,.16)}
+.login-divider{font-size:12px;margin:14px 0;letter-spacing:1.2px}
+.login-form-container .field label{display:block;font-size:14px;font-weight:750;color:#334155;margin-bottom:6px}
+.login-form-container .form-control{min-height:48px;font-size:15px;padding:11px 13px;color:#0f172a;background:#fff;border:1px solid #cbd5e1;border-radius:10px;width:100%}
+.login-form-container .btn{min-height:49px;font-size:15px;font-weight:750;border-radius:11px}
+.login-help{font-size:13px;line-height:1.6;color:#475569}
+.login-error{font-size:14px;line-height:1.45}
+/* Improve contrast and font sizing across the ERP */
+.content p,.card p,.panel p,.section-card p,.chart-card p{color:var(--muted)}
+.nav button{font-size:14px;min-height:42px}
+.nav-title{font-size:12px;font-weight:800;letter-spacing:.7px}
+.kpi-top{font-size:13px}.kpi-value{font-size:clamp(23px,2vw,30px)}
+.table-container th,.table-container td,table th,table td{font-size:13px;line-height:1.5}
+.btn,.icon-button,.logout-btn{font-size:14px}
+.role-welcome h2{font-size:23px}.role-welcome p,.module-intro p,.live-report p{font-size:14px}
+.activity-row strong{font-size:14px}.activity-row small{font-size:12px}
+.admin-overview-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin:16px 0}
+.admin-feature{padding:16px;border:1px solid var(--border);border-radius:14px;background:var(--card)}
+.admin-feature h4{font-size:15px;margin-bottom:5px}.admin-feature p{font-size:13px;color:var(--muted);margin-bottom:12px}
+.admin-dept-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin-top:12px}
+.admin-dept-item{display:flex;align-items:center;gap:8px;padding:9px 10px;border-radius:9px;background:var(--card2);font-size:13px}
+@media(max-width:760px){.login-screen{padding:12px}.login-card{grid-template-columns:minmax(0,1fr);max-height:none;max-width:560px}.login-banner{display:block;padding:22px 24px;min-height:auto}.login-banner-logo{width:42px;height:42px;font-size:20px}.login-banner h2{font-size:25px;margin-top:12px}.login-banner p{font-size:14px}.login-banner>div:last-child{margin-top:18px}.login-form-container{padding:22px 18px}.demo-roles-grid{max-height:230px}.admin-overview-grid{grid-template-columns:1fr}.admin-dept-list{grid-template-columns:1fr}}
+@media(min-width:761px) and (max-height:760px){.login-card{max-height:96vh}.login-banner,.login-form-container{padding:24px}.demo-roles-grid{max-height:190px}}
+
+
+/* Login CTA visibility and usability fix */
+.login-submit-btn,
+.login-submit-btn:visited {
+  display:flex !important; visibility:visible !important; opacity:1 !important;
+  min-height:54px; width:100%; padding:14px 18px; border:0;
+  border-radius:12px; background:linear-gradient(135deg,#1d4ed8,#2563eb);
+  color:#fff !important; font-size:16px; line-height:1.35; font-weight:800;
+  box-shadow:0 8px 18px rgba(37,99,235,.24); cursor:pointer;
+}
+.login-submit-btn:hover { background:linear-gradient(135deg,#1e40af,#1d4ed8); box-shadow:0 10px 22px rgba(37,99,235,.3); }
+.login-submit-btn:focus-visible { outline:3px solid #93c5fd; outline-offset:3px; }
+.login-submit-btn:disabled { cursor:wait; opacity:.75 !important; }
+#loginForm { display:block; width:100%; }
+#loginForm .field { width:100%; }
+#loginError.show { display:block; }
+@media(max-width:520px) { .login-submit-btn { font-size:15px; min-height:52px; } }
+
+
+/* Final UI polish: accessible login, responsive layout and consistent controls */
+:root { --focus-ring: #2563eb; }
+html { scroll-padding-top: 1rem; }
+body { min-width: 320px; }
+.login-screen { position: fixed; overflow-y: auto; overscroll-behavior: contain; }
+.login-card { width: min(100%, 1120px); max-height: min(94dvh, 940px); overflow: auto; grid-template-columns: minmax(260px, .88fr) minmax(0, 1.12fr); }
+.login-banner { min-width: 0; }
+.login-form-container { min-width: 0; }
+.demo-roles-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.demo-role-btn { min-width: 0; overflow-wrap: anywhere; }
+.demo-role-btn:focus-visible, .password-toggle:focus-visible, .login-submit-btn:focus-visible { outline: 3px solid #60a5fa; outline-offset: 3px; }
+.password-field { position: relative; display: flex; align-items: center; }
+.password-field .form-control { padding-right: 76px; }
+.password-toggle { position: absolute; right: 8px; min-width: 54px; min-height: 36px; padding: 5px 9px; border: 1px solid #cbd5e1; border-radius: 8px; background: #f8fafc; color: #1d4ed8; font-weight: 750; font-size: 13px; }
+.password-toggle:hover { background: #dbeafe; }
+.login-form-container .form-control:focus, .role-search:focus { border-color: #2563eb; box-shadow: 0 0 0 3px rgba(37,99,235,.14); outline: none; }
+.login-form-container [aria-invalid="true"] { border-color: #dc2626 !important; box-shadow: 0 0 0 2px rgba(220,38,38,.12); }
+.login-error { font-size: 14px; }
+.login-status { min-height: 1.2em; margin-top: 7px; color: #1d4ed8; font-size: 13px; }
+.role-empty { padding: 12px; color: #475569; background: #f8fafc; border: 1px dashed #cbd5e1; border-radius: 10px; font-size: 14px; }
+.role-empty[hidden] { display: none; }
+.login-spinner { width: 16px; height: 16px; border: 2px solid rgba(255,255,255,.5); border-top-color: #fff; border-radius: 50%; animation: login-spin .7s linear infinite; }
+@keyframes login-spin { to { transform: rotate(360deg); } }
+@media (max-width: 760px) {
+  .login-screen { align-items: flex-start; padding: 12px; }
+  .login-card { max-height: none; grid-template-columns: minmax(0,1fr); margin: auto; }
+  .login-banner { display: block; padding: 22px 22px 18px; }
+  .login-banner h2 { font-size: clamp(23px, 6vw, 30px); }
+  .login-form-container { padding: 22px 18px; }
+  .demo-roles-grid { max-height: 300px; }
+}
+@media (max-width: 420px) {
+  .login-screen { padding: 8px; }
+  .login-card { border-radius: 16px; }
+  .login-banner { padding: 18px; }
+  .login-form-container { padding: 18px 14px; }
+  .demo-roles-grid { grid-template-columns: minmax(0,1fr); max-height: 250px; }
+  .demo-role-btn { min-height: 54px; }
+  .login-form-container h3 { font-size: 23px; }
+  .login-submit-btn { min-height: 52px; }
+}
+@media (min-width: 761px) and (max-height: 760px) {
+  .login-screen { align-items: flex-start; }
+  .login-card { margin: auto; max-height: none; }
+  .demo-roles-grid { max-height: 180px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+}
 </style>
 </head>
 
@@ -1345,40 +1488,27 @@ button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible
 
         <div class="login-form-container">
             <h3>Sign In to Workspace</h3>
-            <p>Select a demo role below or enter credentials:</p>
+            <p>Choose a workspace. Administrators can access the full ERP; department users see only their own tools.</p>
+            <label class="role-search-label" for="roleSearch">Find your workspace</label><input id="roleSearch" class="form-control role-search" type="search" placeholder="Search Admin, Finance, Quality, HR…" autocomplete="off">
+            <div class="demo-roles-grid" id="demoRolesGrid" role="group" aria-label="Choose your department login"></div><p class="role-empty" id="roleEmpty" hidden>No workspaces match your search. Try another department name.</p>
 
-            <div class="demo-roles-grid">
-                <button type="button" class="demo-role-btn" onclick="selectRole('admin')">
-                    👑 Admin Demo
-                </button>
-                <button type="button" class="demo-role-btn" onclick="selectRole('production')">
-                    ⚙️ Production Mgr
-                </button>
-                <button type="button" class="demo-role-btn" onclick="selectRole('inventory')">
-                    📦 Inventory Lead
-                </button>
-                <button type="button" class="demo-role-btn" onclick="selectRole('sales')">
-                    📈 Sales & Finance
-                </button>
-                <button type="button" class="demo-role-btn" onclick="selectRole('hr')" style="grid-column: span 2">
-                    👥 HR & Workforce Lead
-                </button>
-            </div>
-
-            <div class="login-divider">Or manual login</div>
+            <div class="login-divider">Department sign in</div>
 
             <form class="form" style="padding:0" id="loginForm">
+                <div class="login-error" id="loginError" role="alert" aria-live="polite"></div>
                 <div class="field">
-                    <label>Email Address</label>
-                    <input class="form-control" type="email" id="loginEmail" value="admin@asus-erp.com" required>
+                    <label for="loginEmail">Email Address</label>
+                    <input class="form-control" type="email" id="loginEmail" placeholder="Select a department above" autocomplete="username" required>
                 </div>
                 <div class="field">
-                    <label>Password</label>
-                    <input class="form-control" type="password" id="loginPassword" value="••••••••" required>
+                    <label for="loginPassword">Password</label>
+                    <div class="password-field"><input class="form-control" type="password" id="loginPassword" placeholder="Enter your password" autocomplete="current-password" required aria-describedby="passwordHelp"><button type="button" class="password-toggle" id="togglePassword" aria-label="Show password" aria-pressed="false">Show</button></div>
                 </div>
-                <button type="submit" class="btn btn-primary" style="width:100%; margin-top:10px">
-                    Sign In to ERP Dashboard →
+                <button type="submit" id="loginSubmitBtn" class="btn btn-primary login-submit-btn" style="display:flex;visibility:visible;opacity:1;width:100%;min-height:54px;margin-top:14px;align-items:center;justify-content:center;gap:10px;position:relative;z-index:2" aria-label="Log in to the selected department workspace">
+                    <span aria-hidden="true">🔐</span><span>Login to Workspace</span><span aria-hidden="true">→</span>
                 </button>
+                <div class="login-help" id="passwordHelp">Choose a workspace above. Demo password: <strong>demo123</strong>. Admin: <strong>admin@asus-erp.com</strong>.</div>
+                <div class="login-status" id="loginStatus" role="status" aria-live="polite"></div>
             </form>
         </div>
     </div>
@@ -1446,6 +1576,8 @@ button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible
         <button type="button" data-page="maintenance" data-role="admin,production"><span class="nav-icon">⚒</span> Maintenance & Downtime</button>
         <button type="button" data-page="shipping" data-role="admin,sales,inventory"><span class="nav-icon">⇢</span> Dispatch & Serial Registry</button>
         </nav>
+
+    <div class="nav-title" id="departmentNavTitle">Department Workspace</div><nav class="nav" id="departmentNav"></nav>
 
     <div class="sidebar-footer">
         <div class="sidebar-status">
@@ -1572,7 +1704,15 @@ button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible
     </div>
 </div>
 
-<!-- PRODUCTION PAGE -->
+<div class="live-report-grid" id="executiveLiveReports">
+      <section class="live-report"><h3>📈 Output & Dispatch Trend</h3><p>Demo telemetry refreshed automatically</p><div class="report-bars" id="outputReportChart"></div></section>
+      <section class="live-report"><h3>🎯 Department Performance</h3><p>Current sample KPI distribution</p><div class="report-bars" id="departmentReportChart"></div></section>
+    </div>
+    <div class="grid-two">
+      <section class="card"><div class="card-header"><div><h3>Recent Factory Activity</h3><p>Latest prototype events</p></div><span class="status status-success">Monitoring</span></div><div class="card-body activity-feed" id="factoryActivity"></div></section>
+      <section class="card"><div class="card-header"><div><h3>Priority Alerts</h3><p>Items requiring attention</p></div><span class="status status-warning">3 open</span></div><div class="card-body alert-list" id="roleAlerts"></div></section>
+    </div>
+    <!-- PRODUCTION PAGE -->
 <div class="page" id="production">
     <div class="page-title">
         <div>
@@ -1844,12 +1984,30 @@ button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible
 <script>
 // Role Configuration & Accounts
 const roles = {
-    admin: { name: "System Admin", avatar: "AD", role: "admin", email: "admin@asus-erp.com" },
-    production: { name: "Alex Mercer", avatar: "PM", role: "production", email: "prod@asus-erp.com" },
-    inventory: { name: "Sarah Chen", avatar: "IV", role: "inventory", email: "inv@asus-erp.com" },
-    sales: { name: "David Ray", avatar: "SF", role: "sales", email: "sales@asus-erp.com" },
-    hr: { name: "Elena Rostova", avatar: "HR", role: "hr", email: "hr@asus-erp.com" }
+    "admin": { name: "System Administrator", avatar: "AD", role: "admin", email: "admin@asus-erp.com", description: "Full system overview, users, department access, reports and settings", icon: "🛡️", home: "dept-admin" },
+    "md": { name: "MD / Managing Director", avatar: "MM", role: "md", email: "md@asus-erp.com", description: "Executive strategy, approvals, company-wide KPIs", icon: "📊", home: "reports" },
+    "finance": { name: "Finance", avatar: "F", role: "finance", email: "finance@asus-erp.com", description: "Budgets, expenses, cash flow and profitability", icon: "₹", home: "finance" },
+    "production": { name: "Production", avatar: "P", role: "production", email: "production@asus-erp.com", description: "Production planning, work orders and output", icon: "⚙️", home: "production" },
+    "warehouse": { name: "Warehouse", avatar: "W", role: "warehouse", email: "warehouse@asus-erp.com", description: "Stock, bin locations and goods movement", icon: "📦", home: "inventory" },
+    "quality": { name: "Quality", avatar: "Q", role: "quality", email: "quality@asus-erp.com", description: "Inspection, defect tracking and release approvals", icon: "✅", home: "quality" },
+    "packing": { name: "Packing", avatar: "P", role: "packing", email: "packing@asus-erp.com", description: "Packaging queue, carton labels and dispatch readiness", icon: "📦", home: "shipping" },
+    "security": { name: "Security", avatar: "S", role: "security", email: "security@asus-erp.com", description: "Access logs, visitor register and incident tracking", icon: "🛡️", home: "reports" },
+    "hr": { name: "HR", avatar: "H", role: "hr", email: "hr@asus-erp.com", description: "Employee records, attendance and workforce", icon: "👥", home: "workforce" },
+    "sales": { name: "Sales & Customer Care", avatar: "SC", role: "sales", email: "sales@asus-erp.com", description: "Customer orders, CRM and service requests", icon: "🤝", home: "orders" },
+    "supplychain": { name: "Supply Chain", avatar: "SC", role: "supplychain", email: "supplychain@asus-erp.com", description: "Supplier coordination and material availability", icon: "🔗", home: "procurement" },
+    "design": { name: "Design", avatar: "D", role: "design", email: "design@asus-erp.com", description: "Product configurations, engineering changes and BOM", icon: "🎨", home: "bom" },
+    "fleet": { name: "Fleet Delivery", avatar: "FD", role: "fleet", email: "fleet@asus-erp.com", description: "Delivery routes, vehicle status and proof of delivery", icon: "🚚", home: "shipping" },
+    "maintenance": { name: "Machine Maintenance", avatar: "MM", role: "maintenance", email: "maintenance@asus-erp.com", description: "Preventive maintenance, downtime and work orders", icon: "🛠️", home: "maintenance" },
+    "contractors": { name: "External Contractors", avatar: "EC", role: "contractors", email: "contractors@asus-erp.com", description: "Assigned jobs, site access and completion updates", icon: "🧰", home: "tasks" },
+    "repair": { name: "Repair & Client Care", avatar: "RC", role: "repair", email: "repair@asus-erp.com", description: "RMA, repair queue, warranty and client updates", icon: "🔧", home: "crm" },
+    "purchasing": { name: "Purchasing & Sourcing", avatar: "PS", role: "purchasing", email: "purchasing@asus-erp.com", description: "Purchase requests, suppliers and quotations", icon: "🛒", home: "procurement" },
+    "marketing": { name: "Marketing", avatar: "M", role: "marketing", email: "marketing@asus-erp.com", description: "Campaign performance, product demand and leads", icon: "📣", home: "crm" },
+    "assembly": { name: "Assembly Operations", avatar: "AO", role: "assembly", email: "assembly@asus-erp.com", description: "Station assignments, line output and takt time", icon: "🏭", home: "production" },
+    "machinemaint": { name: "Machine Maintenance (Plant)", avatar: "MM", role: "machinemaint", email: "machinemaint@asus-erp.com", description: "Machine health, service calendar and downtime", icon: "⚙️", home: "machines" },
+    "shopfloor": { name: "Shop Floor Assembly", avatar: "SF", role: "shopfloor", email: "shopfloor@asus-erp.com", description: "Shift board, operator tasks and WIP tracking", icon: "🏗️", home: "tasks" },
+    "itfactory": { name: "IT & Factory Systems", avatar: "IF", role: "itfactory", email: "itfactory@asus-erp.com", description: "System health, user access, incidents and uptime", icon: "💻", home: "settings" }
 };
+const departmentConfig = [{"key":"admin","name":"System Administrator","description":"Full system overview, users, department access, reports and settings","icon":"🛡️","page":"dept-admin"},{"key": "md", "name": "MD / Managing Director", "description": "Executive strategy, approvals, company-wide KPIs", "icon": "📊", "page": "reports"}, {"key": "finance", "name": "Finance", "description": "Budgets, expenses, cash flow and profitability", "icon": "₹", "page": "finance"}, {"key": "production", "name": "Production", "description": "Production planning, work orders and output", "icon": "⚙️", "page": "production"}, {"key": "warehouse", "name": "Warehouse", "description": "Stock, bin locations and goods movement", "icon": "📦", "page": "inventory"}, {"key": "quality", "name": "Quality", "description": "Inspection, defect tracking and release approvals", "icon": "✅", "page": "quality"}, {"key": "packing", "name": "Packing", "description": "Packaging queue, carton labels and dispatch readiness", "icon": "📦", "page": "shipping"}, {"key": "security", "name": "Security", "description": "Access logs, visitor register and incident tracking", "icon": "🛡️", "page": "reports"}, {"key": "hr", "name": "HR", "description": "Employee records, attendance and workforce", "icon": "👥", "page": "workforce"}, {"key": "sales", "name": "Sales & Customer Care", "description": "Customer orders, CRM and service requests", "icon": "🤝", "page": "orders"}, {"key": "supplychain", "name": "Supply Chain", "description": "Supplier coordination and material availability", "icon": "🔗", "page": "procurement"}, {"key": "design", "name": "Design", "description": "Product configurations, engineering changes and BOM", "icon": "🎨", "page": "bom"}, {"key": "fleet", "name": "Fleet Delivery", "description": "Delivery routes, vehicle status and proof of delivery", "icon": "🚚", "page": "shipping"}, {"key": "maintenance", "name": "Machine Maintenance", "description": "Preventive maintenance, downtime and work orders", "icon": "🛠️", "page": "maintenance"}, {"key": "contractors", "name": "External Contractors", "description": "Assigned jobs, site access and completion updates", "icon": "🧰", "page": "tasks"}, {"key": "repair", "name": "Repair & Client Care", "description": "RMA, repair queue, warranty and client updates", "icon": "🔧", "page": "crm"}, {"key": "purchasing", "name": "Purchasing & Sourcing", "description": "Purchase requests, suppliers and quotations", "icon": "🛒", "page": "procurement"}, {"key": "marketing", "name": "Marketing", "description": "Campaign performance, product demand and leads", "icon": "📣", "page": "crm"}, {"key": "assembly", "name": "Assembly Operations", "description": "Station assignments, line output and takt time", "icon": "🏭", "page": "production"}, {"key": "machinemaint", "name": "Machine Maintenance (Plant)", "description": "Machine health, service calendar and downtime", "icon": "⚙️", "page": "machines"}, {"key": "shopfloor", "name": "Shop Floor Assembly", "description": "Shift board, operator tasks and WIP tracking", "icon": "🏗️", "page": "tasks"}, {"key": "itfactory", "name": "IT & Factory Systems", "description": "System health, user access, incidents and uptime", "icon": "💻", "page": "settings"}];
 
 let currentUser = null;
 
@@ -1873,12 +2031,24 @@ const purchaseOrders = [
 const trend = [1020, 1180, 1090, 1320, 1260, 1410, 1240];
 
 // Select Demo Role in Login
+let selectedRoleKey = null;
 function selectRole(roleKey) {
     const user = roles[roleKey];
-    if (user) {
-        document.getElementById('loginEmail').value = user.email;
-        login(user);
-    }
+    if (!user) return;
+    selectedRoleKey = roleKey;
+    document.getElementById('loginEmail').value = user.email;
+    document.getElementById('loginPassword').value = 'demo123';
+    document.querySelectorAll('.demo-role-btn').forEach(btn => {
+        const isSelected = btn.getAttribute('onclick') === `selectRole('${roleKey}')`;
+        btn.classList.toggle('is-selected', isSelected);
+        btn.setAttribute('aria-pressed', String(isSelected));
+    });
+    const error = document.getElementById('loginError');
+    if (error) { error.textContent = ''; error.classList.remove('show'); }
+    document.getElementById('loginEmail').removeAttribute('aria-invalid');
+    document.getElementById('loginPassword').removeAttribute('aria-invalid');
+    const status = document.getElementById('loginStatus');
+    if (status) status.textContent = `${user.name} workspace selected.`;
 }
 
 // Login Handler
@@ -1901,9 +2071,17 @@ function login(userObj) {
 
 // Logout Handler
 function logout() {
-    currentUser = null;
+    currentUser = null; selectedRoleKey = null;
     document.getElementById('appMain').style.display = 'none';
     document.getElementById('loginScreen').style.display = 'flex';
+    document.querySelectorAll('.content > .page').forEach(page=>{page.style.display='';page.classList.remove('active');});
+    ['mainNav','managementNav','peopleNav'].forEach(id=>{const el=document.getElementById(id);if(el)el.style.display='';});
+    document.querySelectorAll('#sidebar .nav-title').forEach(el=>el.style.display='');
+    const departmentNav=document.getElementById('departmentNav');if(departmentNav)departmentNav.style.display='';
+    document.getElementById('loginForm').reset();
+    document.querySelectorAll('.demo-role-btn').forEach(btn => { btn.classList.remove('is-selected'); btn.setAttribute('aria-pressed','false'); });
+    const error=document.getElementById('loginError'); if(error){error.textContent='';error.classList.remove('show');}
+    document.getElementById('loginEmail').focus();
 }
 
 function filterNavByRole() {
@@ -1920,7 +2098,55 @@ function filterNavByRole() {
 
 document.getElementById('loginForm').addEventListener('submit', (e) => {
     e.preventDefault();
-    login(roles.admin);
+    const submitBtn = document.getElementById('loginSubmitBtn');
+    const emailInput = document.getElementById('loginEmail');
+    const passwordInput = document.getElementById('loginPassword');
+    const email = emailInput.value.trim().toLowerCase();
+    const password = passwordInput.value;
+    const selected = Object.values(roles).find(r => r.email.toLowerCase() === email);
+    const error = document.getElementById('loginError');
+    const status = document.getElementById('loginStatus');
+    const showError = (message, target = emailInput) => {
+        if (error) { error.textContent = message; error.classList.add('show'); }
+        if (status) status.textContent = '';
+        target.setAttribute('aria-invalid', 'true');
+        target.focus();
+    };
+    emailInput.removeAttribute('aria-invalid');
+    passwordInput.removeAttribute('aria-invalid');
+    if (!selected) { showError('Choose a workspace card or enter a valid demo email address.'); return; }
+    if (password !== 'demo123') { showError('Incorrect demo password. Use demo123 for this prototype.', passwordInput); return; }
+    if (error) { error.textContent = ''; error.classList.remove('show'); }
+    selectedRoleKey = selected.role;
+    if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.setAttribute('aria-busy', 'true');
+        submitBtn.innerHTML = '<span class="login-spinner" aria-hidden="true"></span><span>Opening workspace…</span>';
+    }
+    if (status) status.textContent = 'Signing in to your selected workspace…';
+    try { login(selected); }
+    catch (err) {
+        if (error) { error.textContent = 'We could not open the workspace. Please try again.'; error.classList.add('show'); }
+        if (status) status.textContent = '';
+        console.error('Login failed:', err);
+    } finally {
+        if (submitBtn) {
+            submitBtn.disabled = false;
+            submitBtn.removeAttribute('aria-busy');
+            submitBtn.innerHTML = '<span aria-hidden="true">🔐</span><span>Login to Workspace</span><span aria-hidden="true">→</span>';
+        }
+    }
+});
+
+// Accessible password visibility toggle.
+document.getElementById('togglePassword')?.addEventListener('click', function () {
+    const input = document.getElementById('loginPassword');
+    const showing = input.type === 'password';
+    input.type = showing ? 'text' : 'password';
+    this.textContent = showing ? 'Hide' : 'Show';
+    this.setAttribute('aria-label', showing ? 'Hide password' : 'Show password');
+    this.setAttribute('aria-pressed', String(showing));
+    input.focus();
 });
 
 // Navigation Engine
@@ -2154,6 +2380,214 @@ document.addEventListener('click', (event) => {
     const label = btn.innerText.trim() || btn.getAttribute('aria-label') || 'Action';
     toast(label, 'This demo control was clicked. Live data updates require backend integration.');
 });
+
+
+// Department-level workspace configuration (based on the 21 departments in the planning notes).
+const departmentPermissions = {
+ md:['dashboard','reports','settings','finance','production','inventory','procurement','orders','quality','workforce','pricing','tasks','machines','bom','crm','employees','payroll','maintenance','shipping'],
+ finance:['dashboard','finance','pricing','reports'],
+ production:['dashboard','production','quality','inventory','tasks','machines','bom','maintenance','reports'],
+ warehouse:['dashboard','inventory','shipping','reports'],
+ quality:['dashboard','quality','production','reports'],
+ packing:['dashboard','shipping','inventory','reports'],
+ security:['dashboard','reports'],
+ hr:['dashboard','workforce','employees','payroll','tasks','reports'],
+ sales:['dashboard','orders','finance','pricing','crm','shipping','reports'],
+ supplychain:['dashboard','procurement','inventory','bom','shipping','reports'],
+ design:['dashboard','bom','production','reports'],
+ fleet:['dashboard','shipping','reports'],
+ maintenance:['dashboard','maintenance','machines','reports'],
+ contractors:['dashboard','tasks','maintenance','reports'],
+ repair:['dashboard','crm','quality','shipping','reports'],
+ purchasing:['dashboard','procurement','inventory','reports'],
+ marketing:['dashboard','crm','orders','reports'],
+ assembly:['dashboard','production','tasks','quality','reports'],
+ machinemaint:['dashboard','machines','maintenance','reports'],
+ shopfloor:['dashboard','production','tasks','quality','reports'],
+ itfactory:['dashboard','settings','reports']
+};
+const moduleDescriptions = {
+ finance:'Manage budgets, expense approvals, cash-flow snapshots, invoices and margin reports.',
+ production:'Schedule manufacturing batches, monitor work-in-progress and track line completion.',
+ inventory:'Track component quantities, reorder thresholds, warehouse locations and stock movements.',
+ quality:'Record inspection results, monitor defect rates and release or hold production batches.',
+ packing:'Coordinate packaging queues, carton labels, serial numbers and dispatch readiness.',
+ security:'Review factory access events, visitor records, safety incidents and audit activity.',
+ hr:'Manage workforce allocation, attendance, employee records and payroll review status.',
+ sales:'Follow customer orders, quotations, service requests and order fulfilment.',
+ supplychain:'Coordinate supplier commitments, material availability, purchase orders and lead times.',
+ design:'Maintain product configurations, engineering changes and bill-of-material references.',
+ fleet:'Track delivery batches, fleet assignment, shipment status and proof-of-delivery updates.',
+ maintenance:'Plan preventive service, report equipment downtime and monitor machine availability.',
+ contractors:'Track assigned contractor jobs, site access, due dates and completion approvals.',
+ repair:'Manage repair tickets, return authorisations, warranty checks and client updates.',
+ purchasing:'Raise purchase requests, compare supplier quotations and track sourcing approvals.',
+ marketing:'Review product demand, campaign leads, conversion and customer feedback.',
+ assembly:'Coordinate assembly work orders, station assignments, output and shift progress.',
+ machinemaint:'Monitor plant equipment health, service schedules and machine downtime.',
+ shopfloor:'View shift priorities, operator tasks, work-in-progress and line blockers.',
+ itfactory:'Monitor factory system incidents, account access, service uptime and IT requests.',
+ md:'Review cross-department KPIs, business performance, approvals and operational risk.'
+};
+function buildDepartmentLogin(){
+ const grid=document.getElementById('demoRolesGrid'); if(!grid)return;
+ grid.innerHTML=departmentConfig.map(d=>`<button type="button" class="demo-role-btn ${d.key==='admin'?'is-admin-role':''}" aria-pressed="false" onclick="selectRole('${d.key}')"><span class="role-icon">${d.icon}</span><span class="role-copy"><strong>${d.name}</strong><small>Open ${d.name} workspace</small></span></button>`).join('');
+}
+function buildDepartmentNav(){
+ const nav=document.getElementById('departmentNav'); if(!nav)return;
+ nav.innerHTML=departmentConfig.map(d=>`<button type="button" data-page="dept-${d.key}" data-dept="${d.key}" data-role="${d.key}"><span class="nav-icon">${d.icon}</span>${d.name}</button>`).join('');
+ const pages=document.querySelector('.content');
+ departmentConfig.forEach(d=>{
+   if(document.getElementById('dept-'+d.key))return;
+   const page=document.createElement('div');page.className='page';page.id='dept-'+d.key;
+   const description=moduleDescriptions[d.key]||d.description;
+   const roleWorkspaceData={
+     admin:{metrics:[['Departments available','22'],['Open work queues','148'],['Items needing attention','17'],['System availability','99.8%']],tasks:[['ADM-1001','Review critical factory alerts','High','Pending'],['ADM-1002','Review access and role assignments','High','In progress'],['ADM-1003','Export company-wide operations report','Medium','On track']],checklist:['Review cross-department KPI and alert summary','Audit user access and department permissions','Check backups, system health and unresolved incidents'],actions:['Open admin control center','Manage access','Export system report']},
+     md:{metrics:[['Company revenue','₹8.42 Cr'],['Production output','1,240 units'],['Quality yield','96.8%'],['Approvals pending','08']],tasks:[['EXEC-201','Review factory performance','High','Pending'],['EXEC-202','Approve monthly budget','High','Pending'],['EXEC-203','Review cross-team risks','Medium','In progress']],checklist:['Review company-wide KPI summary','Resolve critical department escalations','Approve pending executive decisions'],actions:['Executive report','Approval queue','Risk review']},
+     finance:{metrics:[['Monthly revenue','₹8.42 Cr'],['Operating costs','₹5.16 Cr'],['Gross margin','38.7%'],['Pending approvals','08']],tasks:[['FIN-1042','Verify supplier invoice','High','Pending'],['FIN-1043','Review purchase payment','Medium','In progress'],['FIN-1044','Reconcile daily expenses','Normal','On track']],checklist:['Reconcile daily transactions','Review invoices and payment due dates','Check budget variances'],actions:['New expense','Invoice review','Export finance report']},
+     production:{metrics:[['Units completed','1,240'],['Active work orders','12'],['Line efficiency','91.6%'],['Work in progress','2,860']],tasks:[['PRD-1042','Complete Vivobook 15 batch','High','In progress'],['PRD-1043','Balance assembly line B','Medium','Pending'],['PRD-1044','Confirm shift output','Normal','On track']],checklist:['Review active work orders','Confirm line material availability','Record shift output and downtime'],actions:['Create work order','Line schedule','Production report']},
+     warehouse:{metrics:[['Stock-keeping items','1,842'],['Low-stock alerts','07'],['Inventory value','₹4.82 Cr'],['Transfers pending','14']],tasks:[['WH-1042','Pick SSD components for Line A','High','Pending'],['WH-1043','Verify RAM bin quantity','Medium','In progress'],['WH-1044','Complete inbound receipt','Normal','On track']],checklist:['Scan inbound component receipts','Check low-stock and reorder alerts','Reconcile bin quantities'],actions:['Receive stock','Stock transfer','Inventory report']},
+     quality:{metrics:[['First-pass yield','96.8%'],['Inspections today','428'],['Open defects','12'],['Release holds','03']],tasks:[['QA-1042','Inspect display panel batch','High','Pending'],['QA-1043','Verify keyboard test failures','High','In progress'],['QA-1044','Approve final QC checklist','Medium','Pending']],checklist:['Inspect assigned production batch','Log defects with severity and evidence','Release or hold products after inspection'],actions:['New inspection','Log defect','Quality report']},
+     hr:{metrics:[['Active employees','486'],['Present today','462'],['Leave requests','09'],['Training due','16']],tasks:[['HR-1042','Review leave request','Medium','Pending'],['HR-1043','Verify attendance exceptions','High','In progress'],['HR-1044','Schedule safety training','Normal','On track']],checklist:['Review attendance exceptions','Process leave and shift requests','Track onboarding and mandatory training'],actions:['Add employee','Attendance review','HR report']},
+     packing:{metrics:[['Units awaiting packing','320'],['Packed today','1,126'],['Label exceptions','06'],['Ready to dispatch','84']],tasks:[['PK-1042','Pack batch VB-1048','High','In progress'],['PK-1043','Reprint serial labels','Medium','Pending'],['PK-1044','Verify carton checklist','Normal','On track']],checklist:['Verify model and serial labels','Confirm protective packaging checklist','Stage sealed cartons for dispatch'],actions:['Packing batch','Label exception','Packing report']},
+     security:{metrics:[['Visitors today','38'],['Active gate passes','12'],['Open incidents','02'],['Checks completed','96%']],tasks:[['SEC-1042','Verify contractor gate pass','High','Pending'],['SEC-1043','Review visitor exit log','Medium','In progress'],['SEC-1044','Complete perimeter checklist','Normal','On track']],checklist:['Verify visitor and contractor authorisation','Review gate entry and exit records','Record and escalate security incidents'],actions:['Register visitor','Incident log','Security report']},
+     sales:{metrics:[['Open customer orders','84'],['Orders shipped','126'],['Open service cases','18'],['Conversion rate','24.8%']],tasks:[['SAL-1042','Confirm customer delivery date','High','Pending'],['SAL-1043','Follow up quotation','Medium','In progress'],['SAL-1044','Update customer case','Normal','On track']],checklist:['Confirm order details and delivery promises','Follow up open quotations and leads','Update customer issues and communications'],actions:['New sales order','Customer follow-up','Sales report']},
+     supplychain:{metrics:[['Active suppliers','126'],['Materials at risk','09'],['Inbound shipments','18'],['On-time supply','94.2%']],tasks:[['SC-1042','Confirm display panel shipment','High','Pending'],['SC-1043','Check component shortage risk','High','In progress'],['SC-1044','Update supplier ETA','Normal','On track']],checklist:['Check material requirements against production plan','Confirm supplier lead times and shipment status','Escalate shortages before line impact'],actions:['Material request','Supplier follow-up','Supply report']},
+     design:{metrics:[['Active product revisions','07'],['BOMs awaiting review','04'],['Engineering changes','03'],['Release readiness','92%']],tasks:[['DSN-1042','Review Vivobook 15 BOM revision','High','Pending'],['DSN-1043','Validate component substitution','Medium','In progress'],['DSN-1044','Publish approved drawing','Normal','On track']],checklist:['Review product specifications and drawings','Validate BOM component revisions','Record engineering change approvals'],actions:['BOM review','Engineering change','Design report']},
+     fleet:{metrics:[['Deliveries scheduled','42'],['Vehicles available','18'],['Delayed routes','03'],['Proofs of delivery','36']],tasks:[['FLT-1042','Dispatch route Chennai North','High','In progress'],['FLT-1043','Confirm vehicle availability','Medium','Pending'],['FLT-1044','Collect proof of delivery','Normal','On track']],checklist:['Confirm vehicle and driver readiness','Track route delays and delivery status','Upload proof of delivery and exceptions'],actions:['Plan delivery','Vehicle status','Fleet report']},
+     maintenance:{metrics:[['Machines operational','38/41'],['Work orders open','06'],['Downtime today','42 min'],['Service due','04']],tasks:[['MNT-1042','Inspect assembly station 03','High','Pending'],['MNT-1043','Replace worn conveyor belt','High','In progress'],['MNT-1044','Complete preventive checklist','Normal','On track']],checklist:['Review machine alarms and downtime','Complete preventive maintenance tasks','Record spare parts and service notes'],actions:['Create maintenance job','Machine status','Maintenance report']},
+     contractors:{metrics:[['Assigned jobs','18'],['Jobs completed','12'],['Access approvals','03'],['Safety checks','98%']],tasks:[['EXT-1042','Complete electrical inspection','High','In progress'],['EXT-1043','Upload job completion evidence','Medium','Pending'],['EXT-1044','Renew site access checklist','Normal','On track']],checklist:['Review assigned work and site permit','Complete required safety checks','Submit work evidence for supervisor approval'],actions:['View assigned job','Safety checklist','Contractor report']},
+     repair:{metrics:[['Open repair tickets','32'],['Awaiting parts','08'],['Repairs completed','24'],['Warranty cases','11']],tasks:[['RPR-1042','Diagnose customer laptop RMA','High','In progress'],['RPR-1043','Check warranty eligibility','Medium','Pending'],['RPR-1044','Notify customer of repair status','Normal','On track']],checklist:['Triage incoming repair and RMA cases','Verify warranty and spare-part availability','Update customer with repair progress'],actions:['New repair ticket','Warranty check','Repair report']},
+     purchasing:{metrics:[['Open purchase requests','28'],['Quotes to compare','11'],['Orders awaiting approval','06'],['Spend this month','₹1.26 Cr']],tasks:[['PUR-1042','Compare SSD supplier quotations','High','Pending'],['PUR-1043','Request revised display-panel quote','Medium','In progress'],['PUR-1044','Prepare PO approval pack','Normal','On track']],checklist:['Compare supplier pricing and lead times','Verify purchase request and budget details','Track purchase order approvals and delivery'],actions:['New purchase request','Compare quotations','Purchasing report']},
+     marketing:{metrics:[['Active campaigns','08'],['Qualified leads','146'],['Campaign conversion','24.8%'],['Feedback items','19']],tasks:[['MKT-1042','Review campaign lead quality','Medium','In progress'],['MKT-1043','Prepare product launch content','High','Pending'],['MKT-1044','Summarise customer feedback','Normal','On track']],checklist:['Review campaign performance and lead sources','Coordinate approved product messaging','Summarise customer feedback and demand signals'],actions:['Create campaign','Review leads','Marketing report']},
+     assembly:{metrics:[['Units assembled','1,126'],['Active stations','12'],['Line efficiency','93.1%'],['Blocked stations','02']],tasks:[['ASM-1042','Complete station 04 assembly','High','In progress'],['ASM-1043','Resolve component shortage at station 07','High','Pending'],['ASM-1044','Record operator handover','Normal','On track']],checklist:['Confirm station staffing and component kits','Track takt time and line blockers','Record output and shift handover'],actions:['Assign station','Report line blocker','Assembly report']},
+     machinemaint:{metrics:[['Plant machines online','38/41'],['Health alerts','03'],['Service calendar items','07'],['Unplanned downtime','42 min']],tasks:[['PM-1042','Review machine health alert','High','Pending'],['PM-1043','Schedule spindle service','Medium','In progress'],['PM-1044','Verify sensor calibration','Normal','On track']],checklist:['Review machine health and sensor alerts','Schedule planned service windows','Verify calibration and restart sign-off'],actions:['Machine health','Schedule service','Plant report']},
+     shopfloor:{metrics:[['Shift output','386 units'],['Operators on shift','64'],['WIP units','742'],['Line blockers','02']],tasks:[['SF-1042','Complete operator station checklist','High','In progress'],['SF-1043','Escalate missing component kit','High','Pending'],['SF-1044','Record shift handover notes','Normal','On track']],checklist:['Review shift target and station assignments','Update work-in-progress and blockers','Complete safety and handover checks'],actions:['Shift board','Report blocker','Shop-floor report']},
+     itfactory:{metrics:[['Systems available','99.8%'],['Open incidents','06'],['Access requests','04'],['Backups verified','100%']],tasks:[['IT-1042','Resolve factory terminal incident','High','In progress'],['IT-1043','Review access request','Medium','Pending'],['IT-1044','Verify backup job status','Normal','On track']],checklist:['Review system alerts and open incidents','Approve access only after identity verification','Verify backup and recovery status'],actions:['Create IT incident','Access review','IT report']}
+   };
+   const workspace=roleWorkspaceData[d.key]||{metrics:[['Open work items','24'],['Completed today','86'],['Needs attention','07'],['On-time rate','94.2%']],tasks:[],checklist:['Review open work queue and blockers','Verify today’s records and exceptions','Complete shift handover notes'],actions:['Create item','Review queue','Export report']};
+   const metricSet=workspace.metrics;
+   page.innerHTML=`<div class="page-title"><div><h2>${d.icon} ${d.name} Workspace</h2><p>${description}</p></div><span class="role-pill">ROLE-SCOPED VIEW</span></div>
+   <div class="module-intro"><h3>Welcome to ${d.name}</h3><p>${description} ${d.key==='admin'?'Use this central console to review all departments, system health, reports and access settings.':'This workspace shows only the tools and sample records relevant to this department.'}</p><div class="module-actions"><button class="btn btn-primary" onclick="departmentAction('${d.key}','${workspace.actions[0]}')">＋ ${workspace.actions[0]}</button><button class="btn btn-outline" onclick="departmentAction('${d.key}','Export report')">⇩ Export report</button><button class="btn btn-outline" onclick="departmentAction('${d.key}','Refresh workspace')">↻ Refresh data</button></div></div>
+   ${d.key==='admin'?`<div class="admin-overview-grid"><article class="admin-feature"><h4>🧭 All departments</h4><p>Jump into any department workspace from this administrator session.</p><div class="admin-dept-list">${departmentConfig.filter(x=>x.key!=='admin').map(x=>`<div class="admin-dept-item"><span>${x.icon}</span><span>${x.name}</span></div>`).join('')}</div></article><article class="admin-feature"><h4>🔐 Access & governance</h4><p>Review role access, account status and administrative settings.</p><div class="module-actions"><button class="btn btn-outline" onclick="departmentAction('admin','Review access matrix')">Review access matrix</button><button class="btn btn-outline" onclick="departmentAction('admin','Open system settings')">System settings</button></div></article><article class="admin-feature"><h4>🩺 System health</h4><p>Demo status for application availability, backup verification and alerts.</p><div class="activity-feed"><div class="activity-row"><span>🟢</span><div><strong>Application services</strong><small>Operational · demo status</small></div></div><div class="activity-row"><span>🟢</span><div><strong>Backup checks</strong><small>Last check successful · demo status</small></div></div><div class="activity-row"><span>🟠</span><div><strong>Open alerts</strong><small>17 items require review · sample data</small></div></div></div></article></div>`:''}
+   <div class="kpis">${metricSet.map((m,i)=>`<div class="card kpi"><div class="kpi-top">${m[0]}<div class="kpi-icon">${['▦','↗','!','✓'][i]}</div></div><div class="kpi-value">${m[1]}</div><div class="kpi-bottom">Sample ERP metric · demo data</div></div>`).join('')}</div>
+   <div class="live-report-grid"><section class="live-report"><h3>📊 ${d.name} Activity</h3><p>Sample hourly activity — auto-refreshing demo data</p><div class="report-bars dept-bars" data-chart="${d.key}"></div></section><section class="live-report"><h3>🧾 ${d.name} Work Queue</h3><p>Tasks tailored to this department</p><div class="table-container"><table><thead><tr><th>Reference</th><th>Work item</th><th>Priority</th><th>Status</th></tr></thead><tbody>${workspace.tasks.map(t=>`<tr><td>${t[0]}</td><td>${t[1]}</td><td><span class="status ${t[2]==='High'?'status-warning':t[2]==='Medium'?'status-info':'status-success'}">${t[2]}</span></td><td><span class="status ${t[3]==='Pending'?'status-warning':t[3]==='In progress'?'status-info':'status-success'}">${t[3]}</span></td></tr>`).join('')}</tbody></table></div></section></div>
+   <section class="card"><div class="card-header"><div><h3>${d.name} Checklist</h3><p>Role-specific tasks for the current shift (demo state)</p></div></div><div class="card-body activity-feed">${workspace.checklist.map(item=>`<label><input type="checkbox"> ${item}</label>`).join('')}</div></section>`;
+   pages.appendChild(page);
+ });
+}
+function departmentAction(key,action){
+ if(key==='admin' && action==='Review access matrix'){toast('Access matrix','Administrator can review all 21 department roles. Demo-only access model; enforce permissions on a backend for production.');return;}
+ if(key==='admin' && action==='Open system settings'){const settingsNav=document.querySelector('#sidebar button[data-page="settings"]');if(settingsNav){settingsNav.click();}else toast('System settings','Settings module is available in the administrator navigation.');return;}
+ if(key==='admin' && action==='Open admin control center'){const el=document.getElementById('dept-admin');if(el){document.querySelectorAll('.content > .page').forEach(p=>p.classList.toggle('active',p===el));el.style.display='block';}return;}
+ if(action==='Refresh workspace'){refreshLiveReports();toast('Workspace refreshed','Sample dashboard visuals have been refreshed.');return;}
+ if(action==='Export report'){
+   const d=departmentConfig.find(x=>x.key===key);
+   const csv='Department,Report,Generated\\n'+JSON.stringify(d.name)+',Demo workspace report,'+new Date().toISOString()+'\\n';
+   const blob=new Blob([csv],{type:'text/csv;charset=utf-8;'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download=key+'-demo-report.csv';a.click();URL.revokeObjectURL(url);toast('Report exported','A demo CSV summary was downloaded.');return;
+ }
+ toast(action,`Demo action for ${key}. Persistent records need a connected backend.`);
+}
+function filterNavByRole(){
+ const role=currentUser?.role;
+ const deptTitle=document.getElementById('departmentNavTitle');
+ const deptNav=document.getElementById('departmentNav');
+ const isAdmin=role==='admin';
+ if(isAdmin){
+   document.querySelectorAll('#sidebar nav button[data-page]').forEach(btn=>{btn.style.display='flex';btn.classList.remove('active');});
+   document.querySelectorAll('#sidebar .nav-title').forEach(el=>el.style.display='block');
+   ['mainNav','managementNav','peopleNav'].forEach(id=>{const el=document.getElementById(id);if(el)el.style.display='block';});
+   if(deptTitle)deptTitle.style.display='block';
+   if(deptNav)deptNav.style.display='block';
+   return;
+ }
+ document.querySelectorAll('#sidebar nav button[data-page]').forEach(btn=>{
+   const isOwnDepartment=btn.dataset.page===`dept-${role}`;
+   btn.style.display=isOwnDepartment?'flex':'none';
+   btn.classList.toggle('active',isOwnDepartment);
+ });
+ document.querySelectorAll('#sidebar .nav-title').forEach(el=>el.style.display='none');
+ if(deptTitle)deptTitle.style.display='block';
+ if(deptNav)deptNav.style.display='block';
+ ['mainNav','managementNav','peopleNav'].forEach(id=>{const el=document.getElementById(id);if(el)el.style.display='none';});
+}
+
+const originalLogin=login;
+login=function(userObj){
+ originalLogin(userObj);
+ const name=document.querySelector('#dashboard .hero h1');
+ const para=document.querySelector('#dashboard .hero p');
+ if(name)name.textContent=`Welcome to ${userObj.name}'s workspace`;
+ if(para)para.textContent=moduleDescriptions[userObj.role]||userObj.description||'Your department workspace is ready.';
+ const isMd=userObj.role==='md';
+ document.querySelectorAll('.page').forEach(page=>page.classList.remove('active'));
+ if(userObj.role==='admin') {
+   document.querySelectorAll('.content > .page').forEach(page=>{page.style.display='';});
+   const adminPage=document.getElementById('dept-admin');if(adminPage){adminPage.style.display='block';adminPage.classList.add('active');}
+   document.getElementById('executiveLiveReports').style.display='grid';
+ } else {
+   document.querySelectorAll('.content > .page').forEach(page=>{page.style.display='none';});
+   document.querySelectorAll('.content > .page').forEach(page=>{if(page.id===`dept-${userObj.role}`){page.style.display='block';page.classList.add('active');}});
+   document.getElementById('executiveLiveReports').style.display=(isMd||userObj.role==='finance'||userObj.role==='production')?'grid':'none';
+ }
+ renderRoleInsights();
+ filterNavByRole();
+ const deptButton=document.querySelector(`#departmentNav button[data-dept="${userObj.role}"]`);
+ if(deptButton)deptButton.classList.add('active');
+};
+const originalShowPage=showPage;
+showPage=function(pageId){
+ if(!currentUser){return;}
+ const ownPage=`dept-${currentUser.role}`;
+ if(currentUser.role==='admin'){
+   originalShowPage(pageId);
+   document.querySelectorAll('.content > .page').forEach(page=>{page.style.display='';});
+   if(pageId==='dept-admin'){document.querySelectorAll('.content > .page').forEach(page=>page.classList.toggle('active',page.id==='dept-admin'));}
+   return;
+ }
+ if(pageId==='dashboard' && !document.getElementById(ownPage)?.classList.contains('active')){return;}
+ if(pageId!==ownPage){toast('Workspace restricted',`You are signed in as ${currentUser.name}. Only your department workspace is available in this session.`);return;}
+ originalShowPage(pageId);
+ document.querySelectorAll('.content > .page').forEach(page=>{page.style.display=page.id===ownPage?'block':'none';});
+ document.getElementById(ownPage)?.classList.add('active');
+};
+function makeBars(container,values,labels){
+ if(!container)return;
+ const max=Math.max(...values,1);
+ container.innerHTML=values.map((v,i)=>`<div class="report-bar-wrap"><b>${v}</b><div class="report-bar" style="height:${Math.max(6,v/max*100)}%"></div><small>${labels[i]}</small></div>`).join('');
+}
+function refreshLiveReports(){
+ const bump=()=>Math.round((Math.random()*.22+.89)*100);
+ makeBars(document.getElementById('outputReportChart'),Array.from({length:7},()=>bump()),['M','T','W','T','F','S','S']);
+ makeBars(document.getElementById('departmentReportChart'),[92,84,97,76,88,95],['Prod','QA','Stock','HR','Sales','IT']);
+ document.querySelectorAll('.dept-bars').forEach(el=>makeBars(el,Array.from({length:6},()=>bump()),['08','10','12','14','16','18']));
+ const activity=document.getElementById('factoryActivity');
+ if(activity)activity.innerHTML=[['🏭','Production batch VB-1048 updated','Assembly line · just now'],['📦','Component stock threshold checked','Warehouse · 2 min ago'],['🛠️','Preventive maintenance reminder','Plant operations · 5 min ago']].map(a=>`<div class="activity-row"><span>${a[0]}</span><div><strong>${a[1]}</strong><small>${a[2]}</small></div></div>`).join('');
+ const alerts=document.getElementById('roleAlerts');
+ if(alerts)alerts.innerHTML=[['!','7 components below reorder level','Inventory'],['⚙','Machine service due on Line 3','Maintenance'],['✓','3 quality approvals awaiting review','Quality']].map(a=>`<div class="alert-item"><div class="alert-icon">${a[0]}</div><div class="alert-content"><strong>${a[1]}</strong><small>${a[2]}</small></div></div>`).join('');
+}
+function renderRoleInsights(){refreshLiveReports();}
+
+// Login role search: keep the role picker tidy and easy to scan.
+document.addEventListener('input', function(event){
+ if(event.target && event.target.id==='roleSearch'){
+   const q=event.target.value.trim().toLowerCase();
+   let visibleCount = 0;
+   document.querySelectorAll('#demoRolesGrid .demo-role-btn').forEach(btn=>{
+     const match = btn.textContent.toLowerCase().includes(q);
+     btn.style.display = match ? 'flex' : 'none';
+     if (match) visibleCount++;
+   });
+   const empty = document.getElementById('roleEmpty');
+   if (empty) empty.hidden = visibleCount !== 0;
+ }
+});
+
+buildDepartmentLogin();
+buildDepartmentNav();
+refreshLiveReports();
+setInterval(refreshLiveReports,15000);
+
 
 // Initialize
 renderOrders();
